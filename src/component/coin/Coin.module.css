@@ -1,7 +1,31 @@
-/* Coin row container styling */
-.container {
-    border: 1px solid black;
-  }
-  
-  /* Coin image styling */
- 
+ .green{
+  color: rgb(0, 253, 0);
+  font-weight: 600;
+ }
+ .red{
+  color: rgb(255, 59, 59);
+  font-weight: 600;
+ }
+ .symbol{
+  text-transform: uppercase;
+  font-size: x-small;
+  color: gray;
+ }
+ .name{
+  display: grid;
+  grid: auto / 40px 120px;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  text-wrap: wrap;
+  text-align: left;
+  line-height: 20px;
+ }
+.imgsym{
+  text-align: center;
+  line-height: 12px;
+}
+ .updown{
+  font-size: xx-small;
+  padding: 0 4px;
+ }

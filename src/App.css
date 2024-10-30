@@ -1,42 +1,71 @@
 /* Wrapper around the table for horizontal scrolling */
 *{
-  font-size: 1rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
+.container{
+  border: 1px solid black;
+  margin: 15px;
+}
 .table-wrapper {
-  max-width: 700px;
+  max-width: 1000px;
   overflow-x: auto;
-  margin: 0 10px;
 }
 
 /* Table styling */
 table {
   width: 100%;
-  min-width: 600px;
   border-collapse: collapse;
   position: relative; /* Add this */
 }
 
 /* Table header and cell styling */
 th, td {
-  padding: 8px;
-  text-align: left;
-  border: 1px solid #ddd;
+  padding: 10px;
+  text-wrap: nowrap;
+  text-align: right;
+  width: fit-content;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.089);
 }
-
-th {
-  background-color: #f2f2f2;
+th{
+  cursor: pointer;
 }
 
 /* Sticky column styling */
 .sticky-column {
   position: sticky;
   left: 0;
-  border: 1px solid #ddd;
-  background-color: #ffffff; /* To match the table background */
   z-index: 1;
+  background-color: white;
+  text-align: left;
 }
 img {
   width: 30px;
-  mix-blend-mode: multiply;
+  border-radius: 50%;
+}
+.green{
+  color: rgb(0, 253, 0);
+  font-weight: 600;
+ }
+ .red{
+  color: rgb(255, 59, 59);
+  font-weight: 600;
+ }
+ .updown{
+  font-size: xx-small;
+  padding: 0 4px;
+ }
+@media screen and (max-width:1000px){
+  .sticky-column{
+    box-shadow: 0 10px 10px rgb(113, 113, 113);
+  }
+}
+.trandingSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
 }

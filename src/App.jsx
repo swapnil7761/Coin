@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Coin from "./component/coin/Coin";
+import Cointable from "./component/coin/Cointable";
+import Tranding from "./component/tranding/Tranding";
 
 function App() {
-  const [coins, setCoins] = useState([]);
   const [filterCoins, setFilterCoins] = useState([]);
   const [atoz, setatoz] = useState(true);
 
@@ -23,7 +23,6 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-        setCoins(res);
         setFilterCoins(res); // Initialize filtered coins when data is fetched
       })
       .catch((err) => console.error(err));
@@ -47,32 +46,12 @@ function App() {
   return (
     <>
       <h1>Cryptocurrency Market</h1>
-      <div className="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th onClick={() => handleSort("name")}>▲▼ Name </th>
-              <th className="sticky-column">Image</th>
-              <th onClick={() => handleSort("current_price")}>
-                ▲▼ Current Price ($)
-              </th>
-              <th>24h High ($)</th>
-              <th>24h Low ($)</th>
-              <th onClick={() => handleSort("price_change_24h")}>
-                ▲▼ Price Change (24h) ($)
-              </th>
-              <th onClick={() => handleSort("price_change_percentage_24h")}>
-                ▲▼ Price Change Percentage (24h) (%)
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {filterCoins.map((coin, index) => (
-              <Coin key={index} coin={coin} />
-            ))}
-          </tbody>
-        </table>
+      <div className="trandingSection">
+        <Tranding handleSort={handleSort} filterCoins={filterCoins} />
+        <Tranding handleSort={handleSort} filterCoins={filterCoins} />
+        <Tranding handleSort={handleSort} filterCoins={filterCoins} />
       </div>
+      <Cointable handleSort={handleSort} filterCoins={filterCoins} />
     </>
   );
 }
