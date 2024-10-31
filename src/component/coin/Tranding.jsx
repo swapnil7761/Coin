@@ -1,7 +1,8 @@
 import React from "react";
 import s from "./Tranding.module.css";
+import CoinChart from "./CoinChart";
 
-const Tranding = ({ handleSort, filterCoins }) => {
+const Tranding = ({ filterCoins }) => {
   const tranding = [...filterCoins]
     .sort(
       (a, b) =>
@@ -26,6 +27,7 @@ const Tranding = ({ handleSort, filterCoins }) => {
                 <img src={coin.image} alt={coin.symbol} />
                 {coin.symbol.toUpperCase()}
               </td>
+
               <td>$ {coin.current_price} </td>
               <td
                 className={

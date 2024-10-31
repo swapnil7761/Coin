@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
 }
+
 .container{
   border: 1px solid black;
   margin: 15px;
@@ -41,7 +42,7 @@ th{
   text-align: left;
 }
 img {
-  width: 30px;
+  width: 40px;
   border-radius: 50%;
 }
 .green{
@@ -53,7 +54,7 @@ img {
   font-weight: 600;
  }
  .updown{
-  font-size: xx-small;
+  font-size: small;
   padding: 0 4px;
  }
 @media screen and (max-width:1000px){

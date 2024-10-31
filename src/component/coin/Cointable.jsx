@@ -19,6 +19,7 @@ function Cointable({ filterCoins, handleSort }) {
               <th onClick={() => handleSort("circulating_supply")}>
                 Circulating Supply
               </th>
+              <th>Last 7D</th>
             </tr>
           </thead>
           <tbody>

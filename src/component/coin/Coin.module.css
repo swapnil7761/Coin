@@ -29,3 +29,7 @@
   font-size: xx-small;
   padding: 0 4px;
  }
+.link{
+  text-decoration: none;
+  color: unset;
+}
