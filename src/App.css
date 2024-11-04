@@ -6,12 +6,14 @@
 }
 
 .container{
-  border: 1px solid black;
-  margin: 15px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.100);
+  border-radius: 7.5px;
 }
 .table-wrapper {
-  max-width: 1000px;
+  max-width: 1200px;
   overflow-x: auto;
+  margin: 0 auto;
 }
 
 /* Table styling */
@@ -23,7 +25,7 @@ table {
 
 /* Table header and cell styling */
 th, td {
-  padding: 10px;
+  padding: 10px 20px;
   text-wrap: nowrap;
   text-align: right;
   width: fit-content;
@@ -69,4 +71,101 @@ img {
   gap: 20px;
   flex-wrap: wrap;
   margin: 20px 0;
+}
+.loader {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto; /* Center the loader */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.detailchartdiv{
+  grid-column: 2/5;
+  display: grid;
+  align-items: center;
+  height: fit-content;
+  min-width: 320px;
+  overflow: auto;
+  margin: 10px;
+  position: relative;
+}
+.infosection{
+  grid-column: 2/5;
+  margin: 10px;
+  padding: 30px;
+}
+.infosection h1{
+  text-transform: capitalize;
+  padding-bottom: 20px;
+}
+.infosection p{
+  color: rgb(81, 81, 81);
+  line-height: 20px;
+}
+.collapsed {
+  height: 180px; /* Set a fixed height for the collapsed state */
+  overflow: hidden;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.08) 100%);
+}
+
+.expanded {
+  height: auto; 
+  overflow: visible;/* Expand to fit content */
+}
+.chartbtndiv{
+  border-radius: 7.5px;
+  height: fit-content;
+  padding: 2px;
+  width: fit-content;
+  margin: 0 auto;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+}
+.chartbtndivbutton{
+  background-color: rgb(255, 255, 255);
+  padding: 4px 6px 4px 4px;
+  border-radius: 5px;
+  margin: 2px;
+  border: 1px solid rgba(128, 128, 128, 0.265);
+  box-shadow: 0 0 10px rgba(214, 214, 214, 0.322);
+  color: rgb(85, 84, 84);
+}
+.selected{
+  background-color: rgb(84, 84, 84);
+  font-weight: 800;
+}
+.detailpage{
+  display: grid;
+  grid-template-columns:  1fr 3fr;
+  margin: 10px;
+}
+
+@media screen and (max-width:1024px){
+  .detailpage{
+    display: grid;
+    grid-template-columns:  1fr;
+  }
+  .chartbtndiv{
+    top: 5px;
+    left: 5px;
+  }
+  
+}
+@media screen and (max-width:768px){
+  .detailchartdiv{
+    grid-column: 1/2;
+    
+  }
+  .infosection{
+    grid-column: 1/2;
+  }
 }

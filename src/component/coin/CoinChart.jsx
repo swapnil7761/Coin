@@ -14,7 +14,7 @@ const CoinChart = ({ sparklineData }) => {
   }));
 
   return (
-    <ResponsiveContainer height={50}>
+    <ResponsiveContainer height={50} width={200}>
       <LineChart data={chartData}>
         <YAxis
           domain={[minPrice, maxPrice]}

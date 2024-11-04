@@ -1,6 +1,5 @@
 import React from "react";
 import s from "./Tranding.module.css";
-import CoinChart from "./CoinChart";
 
 const Tranding = ({ filterCoins }) => {
   const tranding = [...filterCoins]

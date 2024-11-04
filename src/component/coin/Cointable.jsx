@@ -3,7 +3,7 @@ import Coin from "./Coin.jsx";
 function Cointable({ filterCoins, handleSort }) {
   return (
     <>
-      <div className="table-wrapper container">
+      <div className="table-wrapper ">
         <table>
           <thead>
             <tr>
