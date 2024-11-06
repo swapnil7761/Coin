@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Cointable from "../component/coin/Cointable";
 import Tranding from "../component/coin/Tranding";
+import Tweets from "../component/community/Tweets";
 
 function Homepage() {
   const [filterCoins, setFilterCoins] = useState([]);
@@ -39,6 +40,8 @@ function Homepage() {
     });
 
     setFilterCoins(sortedCoins);
+    console.log(sortedCoins);
+
     setatoz(!atoz);
   };
 
@@ -47,6 +50,7 @@ function Homepage() {
       <h1>Cryptocurrency Market</h1>
       <div className="trandingSection">
         <Tranding filterCoins={filterCoins} />
+        {/* <Tweets /> */}
       </div>
       <Cointable handleSort={handleSort} filterCoins={filterCoins} />
     </>

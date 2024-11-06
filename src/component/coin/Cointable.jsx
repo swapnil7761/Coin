@@ -3,7 +3,7 @@ import Coin from "./Coin.jsx";
 function Cointable({ filterCoins, handleSort }) {
   return (
     <>
-      <div className="table-wrapper ">
+      <div className="table-wrapper">
         <table>
           <thead>
             <tr>
@@ -24,7 +24,13 @@ function Cointable({ filterCoins, handleSort }) {
           </thead>
           <tbody>
             {filterCoins.map((coin, index) => (
-              <Coin key={index} coin={coin} />
+              <tr
+                key={coin.id}
+                className="table-row"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <Coin coin={coin} />
+              </tr>
             ))}
           </tbody>
         </table>

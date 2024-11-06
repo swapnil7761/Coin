@@ -4,8 +4,13 @@ import CoinChart from "./CoinChart";
 import { Link } from "react-router-dom";
 
 const Coin = ({ coin }) => {
+  // Function to format numbers with commas
+  const formatNumber = (number) => {
+    return new Intl.NumberFormat().format(number);
+  };
+
   return (
-    <tr className={s.container}>
+    <>
       <td className={`sticky-column ${s.name}`}>
         <div className={s.imgsym}>
           <img src={coin.image} alt={`${coin.name} image`} />
@@ -22,22 +27,23 @@ const Coin = ({ coin }) => {
           </Link>
         </div>
       </td>
-      <td>$ {coin.current_price} </td>
+      <td>{formatNumber(coin.current_price)} $ </td>
       <td className={coin.price_change_percentage_24h >= 0 ? s.green : s.red}>
         {coin.price_change_percentage_24h.toFixed(2)}
         <span className={s.updown}>
           {coin.price_change_24h >= 0 ? "▲" : "▼"}
         </span>
       </td>
-      <td>$ {coin.market_cap}</td>
-      <td>{coin.total_volume}</td>
+      <td>{formatNumber(coin.market_cap)} $</td>
+      <td>{formatNumber(coin.total_volume)}</td>
       <td>
-        {coin.circulating_supply.toFixed(0)} {coin.symbol.toUpperCase()}
+        {formatNumber(coin.circulating_supply.toFixed(0))}{" "}
+        {coin.symbol.toUpperCase()}
       </td>
       <td>
         <CoinChart sparklineData={coin.sparkline_in_7d} />
       </td>
-    </tr>
+    </>
   );
 };
 

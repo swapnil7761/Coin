@@ -14,6 +14,8 @@
   max-width: 1200px;
   overflow-x: auto;
   margin: 0 auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
 }
 
 /* Table styling */
@@ -34,7 +36,18 @@ th, td {
 th{
   cursor: pointer;
 }
+.table-row {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.5s forwards;
+}
 
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* Sticky column styling */
 .sticky-column {
   position: sticky;
@@ -46,6 +59,7 @@ th{
 img {
   width: 40px;
   border-radius: 50%;
+  box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.15);
 }
 .green{
   color: rgb(0, 253, 0);
@@ -109,15 +123,20 @@ img {
   color: rgb(81, 81, 81);
   line-height: 20px;
 }
-.collapsed {
-  height: 180px; /* Set a fixed height for the collapsed state */
+.description {
   overflow: hidden;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.08) 100%);
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Limits to 4 lines */
+  -webkit-box-orient: vertical;
+  text-decoration: none;
 }
 
-.expanded {
-  height: auto; 
-  overflow: visible;/* Expand to fit content */
+.description.collapsed {
+  cursor: pointer;
+}
+
+.description.expanded {
+  -webkit-line-clamp: unset; /* Removes the line limit when expanded */
 }
 .chartbtndiv{
   border-radius: 7.5px;

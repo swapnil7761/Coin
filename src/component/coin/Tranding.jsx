@@ -1,4 +1,5 @@
 import React from "react";
+import CoinChart from "./CoinChart";
 import s from "./Tranding.module.css";
 
 const Tranding = ({ filterCoins }) => {
@@ -9,7 +10,6 @@ const Tranding = ({ filterCoins }) => {
         Math.abs(a.price_change_percentage_24h)
     )
     .slice(0, 5);
-  console.log(tranding);
 
   return (
     <div className={`container ${s.tranding} `}>
@@ -23,8 +23,10 @@ const Tranding = ({ filterCoins }) => {
             <tr key={index}>
               <td>{index + 1}</td>
               <td className={s.trandingimgname}>
-                <img src={coin.image} alt={coin.symbol} />
-                {coin.symbol.toUpperCase()}
+                <div>
+                  <img src={coin.image} alt={coin.symbol} />
+                </div>
+                <p>{coin.symbol.toUpperCase()}</p>
               </td>
 
               <td>$ {coin.current_price} </td>
@@ -33,10 +35,15 @@ const Tranding = ({ filterCoins }) => {
                   coin.price_change_percentage_24h >= 0 ? "green" : "red"
                 }
               >
-                {coin.price_change_percentage_24h.toFixed(2)}
+                {coin.price_change_percentage_24h.toFixed(2)}%
                 <span className={"updown"}>
                   {coin.price_change_24h >= 0 ? "▲" : "▼"}
                 </span>
+              </td>
+              <td className={s.sparkline}>
+                <div className={s.chartWrapper}>
+                  <CoinChart sparklineData={coin.sparkline_in_7d} />
+                </div>
               </td>
             </tr>
           ))}

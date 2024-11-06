@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -53,27 +53,36 @@ const Detailchart = ({ coin }) => {
     fetch(url, options)
       .then((res) => res.json())
       .then((data) => {
-        const formattedData = {
-          labels: data.prices.map((price) => {
-            const date = new Date(price[0]);
+        const prices = data.prices.map((price) => price[1]);
+        const labels = data.prices.map((price) => {
+          const date = new Date(price[0]);
+          return datarange === timeRanges[0].value
+            ? date.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+              })
+            : date.toLocaleDateString();
+        });
 
-            return datarange === timeRanges[0].value // For 1 day range, show time only
-              ? date.toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })
-              : date.toLocaleDateString(); // For other ranges, show date
-          }),
+        const formattedData = {
+          labels: labels,
           datasets: [
             {
               label: `${coin.id} Price (USD)`,
-              data: data.prices.map((price) => price[1]),
-              borderColor: "#4caf50",
-              backgroundColor: "rgba(76, 175, 80, 0.2)",
+              data: prices,
               fill: true,
-              borderWidth: 0.7,
-              pointRadius: 1, // Make points smaller
-              pointHoverRadius: 3,
+              backgroundColor: (ctx) => createGradient(ctx.chart.ctx, prices),
+              borderWidth: 2,
+              pointRadius: 3,
+              pointHoverRadius: 6,
+              segment: {
+                borderColor: (ctx) => {
+                  const { p0, p1 } = ctx;
+                  return p1.parsed.y > p0.parsed.y
+                    ? "rgba(0, 253, 0)"
+                    : "rgba(255, 59, 59)"; // Green if increasing, red if decreasing
+                },
+              },
             },
           ],
         };
@@ -87,6 +96,19 @@ const Detailchart = ({ coin }) => {
         setLoading(false);
       });
   }, [datarange]);
+
+  const createGradient = useCallback((ctx, prices) => {
+    const gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
+    gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
+
+    gradient.addColorStop(
+      1,
+      prices[0] < prices[prices.length - 1]
+        ? "rgba(0, 253, 0, 0.3)"
+        : "rgba(255, 59, 59, 0.3)"
+    ); // Transparent bottom
+    return gradient;
+  }, []);
 
   const options = {
     responsive: true,
@@ -103,9 +125,9 @@ const Detailchart = ({ coin }) => {
         type: "category",
         labels: chartData?.labels || [],
         ticks: {
-          maxTicksLimit: 10, // Limit the number of ticks shown on the X-axis
-          maxRotation: 0, // Prevent label rotation
-          autoSkip: true, // Automatically skip labels to prevent overlap
+          maxTicksLimit: 10,
+          maxRotation: 0,
+          autoSkip: true,
         },
       },
       y: {
@@ -120,31 +142,27 @@ const Detailchart = ({ coin }) => {
       {loading ? (
         <div className="loader"></div>
       ) : chartData ? (
-        <div
-          style={{
-            width: "100%",
-            minWidth: "705px",
-            overflow: "auto",
-          }}
-        >
-          <Line data={chartData} options={options} />
-        </div>
+        <>
+          <div style={{ width: "100%", minWidth: "705px", overflow: "auto" }}>
+            <Line data={chartData} options={options} />
+          </div>
+          <div className="chartbtndiv">
+            {timeRanges.map((range) => (
+              <button
+                key={range.label}
+                className={
+                  datarange === range.value ? "selected" : "chartbtndivbutton"
+                }
+                onClick={() => setDatarange(range.value)}
+              >
+                {range.label}
+              </button>
+            ))}
+          </div>
+        </>
       ) : (
         <p>No data available.</p>
       )}
-      <div className="chartbtndiv">
-        {timeRanges.map((range) => (
-          <button
-            key={range.label}
-            className={
-              datarange === range.value ? "selected" : "chartbtndivbutton"
-            }
-            onClick={() => setDatarange(range.value)}
-          >
-            {range.label}
-          </button>
-        ))}
-      </div>
     </div>
   );
 };

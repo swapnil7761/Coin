@@ -1,9 +1,8 @@
 .detailcover{
     display: grid;
     grid-template-columns:  1fr 1fr;
-    border: 1px solid black;
     gap: 8px;
-    height: 440px;
+    height: 400px;
     width: 100%;
     min-width: 320px;
     max-width: 420px;
@@ -60,7 +59,7 @@
 }
 
 .detailcover p{
-    color: gray;
+    color: rgb(83, 82, 82);
 }
 .detailcover >div{
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -74,11 +73,16 @@
 .sentiment{
     grid-column: 1 / span 2;
     display: flex;
-    gap: 4px;
+    gap: 2px;
     margin: 4px;
     justify-content: center;
     align-items: center;
 }
 .sentiment div{
-    height: 10px;
+    height: 5px;
+}
+.tooltip{
+    cursor: pointer;
+    font-size: smaller;
+    color: rgb(151, 150, 150);
 }

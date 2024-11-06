@@ -3,10 +3,6 @@ import React, { useState } from "react";
 const Info = ({ coin }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
-
   return (
     <div
       className={`infosection container ${
@@ -14,11 +10,11 @@ const Info = ({ coin }) => {
       }`}
       onClick={() => setIsExpanded(!isExpanded)}
     >
-      <h1>
-        About
-        {"  " + coin.id}
-      </h1>
-      <p dangerouslySetInnerHTML={{ __html: coin.description.en }} />
+      <h1>About {coin.id}</h1>
+      <p
+        className={`description ${isExpanded ? "expanded" : "collapsed"}`}
+        dangerouslySetInnerHTML={{ __html: coin.description.en }}
+      />
     </div>
   );
 };
