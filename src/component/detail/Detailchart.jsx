@@ -99,13 +99,17 @@ const Detailchart = ({ coin }) => {
 
   const createGradient = useCallback((ctx, prices) => {
     const gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
-    gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
+    gradient.addColorStop(
+      0.2,
+      prices[0] < prices[prices.length - 1]
+        ? "rgba(0, 199, 0, .3)"
+        : "rgba(255, 59, 59, .3)"
+    );
 
     gradient.addColorStop(
-      1,
-      prices[0] < prices[prices.length - 1]
-        ? "rgba(0, 253, 0, 0.3)"
-        : "rgba(255, 59, 59, 0.3)"
+      0.9,
+
+      "rgba(0, 0, 0, 0)"
     ); // Transparent bottom
     return gradient;
   }, []);

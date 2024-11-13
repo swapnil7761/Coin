@@ -171,9 +171,8 @@ Cryptocurrencies with a low ratio are less liquid and most likely present less s
           <div
             style={{
               width: `${coin.sentiment_votes_up_percentage}%`,
-              background: "rgb(0, 253, 0)",
+              background: "rgb(0, 199, 0)",
               borderRadius: "5px 0 0 5px",
-              boxShadow: "-2px 0 5px rgb(0, 253, 0)",
             }}
           ></div>
           <div
@@ -181,7 +180,6 @@ Cryptocurrencies with a low ratio are less liquid and most likely present less s
               width: `${coin.sentiment_votes_down_percentage}%`,
               background: "rgb(255, 59, 59)",
               borderRadius: "0 5px 5px 0",
-              boxShadow: "2px 0 5px rgb(255, 59, 59)",
             }}
           ></div>
           <p>{coin.sentiment_votes_down_percentage}% Bearish</p>

@@ -1,12 +1,4 @@
- .green{
-  color: rgb(0, 253, 0);
-  font-weight: 600;
- }
- .red{
-  color: rgb(255, 59, 59);
-  font-weight: 600;
- }
- .symbol{
+   .symbol{
   text-transform: uppercase;
   font-size: x-small;
   color: gray;
@@ -25,10 +17,6 @@
   text-align: center;
   line-height: 12px;
 }
- .updown{
-  font-size: xx-small;
-  padding: 0 4px;
- }
 .link{
   text-decoration: none;
   color: unset;

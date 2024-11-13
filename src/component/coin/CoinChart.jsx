@@ -25,7 +25,7 @@ const CoinChart = ({ sparklineData }) => {
           dataKey="price"
           stroke={prices[0] < prices[prices.length - 1] ? "#00FD00" : "#FF3B3B"}
           dot={false}
-          strokeWidth={1}
+          strokeWidth={1.2}
         />
       </LineChart>
     </ResponsiveContainer>

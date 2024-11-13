@@ -11,35 +11,49 @@ const Coin = ({ coin }) => {
 
   return (
     <>
-      <td className={`sticky-column ${s.name}`}>
-        <div className={s.imgsym}>
-          <img src={coin.image} alt={`${coin.name} image`} />
-          <span className={s.symbol}>{coin.symbol}</span>
-        </div>
-        <div>
-          <Link
-            className={s.link}
-            to={`/coin/${coin.id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {coin.name}
-          </Link>
-        </div>
-      </td>
-      <td>{formatNumber(coin.current_price)} $ </td>
-      <td className={coin.price_change_percentage_24h >= 0 ? s.green : s.red}>
-        {coin.price_change_percentage_24h.toFixed(2)}
-        <span className={s.updown}>
-          {coin.price_change_24h >= 0 ? "▲" : "▼"}
+      <Link
+        className={s.link}
+        to={`/coin/${coin.id}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <td className={`sticky-column ${s.name}`}>
+          <div className={s.imgsym}>
+            <img src={coin.image} alt={`${coin.name} image`} />
+            <span className={s.symbol}>{coin.symbol}</span>
+          </div>
+          <div>{coin.name}</div>
+        </td>
+      </Link>
+      <td>${formatNumber(coin.current_price)} </td>
+      <td
+        className={
+          coin.price_change_percentage_1h_in_currency >= 0 ? "green" : "red"
+        }
+      >
+        <span className={"updown"}>
+          {coin.price_change_percentage_1h_in_currency >= 0 ? "▲" : "▼"}
         </span>
+        {Math.abs(coin.price_change_percentage_1h_in_currency.toFixed(2))}%
       </td>
-      <td>{formatNumber(coin.market_cap)} $</td>
-      <td>{formatNumber(coin.total_volume)}</td>
-      <td>
-        {formatNumber(coin.circulating_supply.toFixed(0))}{" "}
-        {coin.symbol.toUpperCase()}
+      <td className={coin.price_change_percentage_24h >= 0 ? "green" : "red"}>
+        <span className={"updown"}>
+          {coin.price_change_percentage_24h >= 0 ? "▲" : "▼"}
+        </span>
+        {Math.abs(coin.price_change_percentage_24h.toFixed(2))}%
       </td>
+      <td
+        className={
+          coin.price_change_percentage_7d_in_currency >= 0 ? "green" : "red"
+        }
+      >
+        <span className={"updown"}>
+          {coin.price_change_percentage_7d_in_currency >= 0 ? "▲" : "▼"}
+        </span>
+        {Math.abs(coin.price_change_percentage_7d_in_currency.toFixed(2))}%
+      </td>
+      <td>${formatNumber(coin.market_cap)}</td>
+      <td>${formatNumber(coin.total_volume)}</td>
       <td>
         <CoinChart sparklineData={coin.sparkline_in_7d} />
       </td>
