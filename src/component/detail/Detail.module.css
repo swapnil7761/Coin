@@ -1,13 +1,24 @@
+.alldetail{
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
 .detailcover{
     display: grid;
     grid-template-columns:  1fr 1fr;
     gap: 8px;
     height: 400px;
     width: 100%;
-    min-width: 320px;
+    min-width: 300px;
     max-width: 420px;
     padding: 10px;
 }
+@media screen and (max-width:1260px){
+    .detailcover{
+        height: auto;      
+        padding-bottom: 0; 
+    }  
+    }
 .detailtitle{
     grid-column: 1/3;
     font-size: 1.7rem;
@@ -25,6 +36,7 @@
 }
 .detailimg img{
     width: 60px;
+    aspect-ratio: 1/1;
 }
 .detailprice{
     grid-column: 2/3;
@@ -42,20 +54,26 @@
     grid-column: 2/3;
     grid-row: 1/2;
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
+    text-align: left;
     align-items: first baseline;
     gap: 8px;
+    word-break: break-all;
 }
 .detailsymbol{
     text-transform: uppercase;
     font-size: 1rem;
     color: rgb(86, 85, 85);
+    word-break: keep-all;
+    padding-left: 8px;
 }
 .marketcap{
     font-size: 1rem;
     background-color: rgb(235, 232, 232);
-    padding: 4px;
+    padding: 6px;
+    margin-right: 4px;
     border-radius: 5px;
+    word-break: keep-all;
 }
 
 .detailcover p{
@@ -87,4 +105,74 @@
     font-weight: 400;
     padding-left: 4px;
     color: rgb(158, 157, 157);
+}
+.socials{
+    margin:0 10px;
+    padding: 10px;
+    display: grid;
+    gap: 8px;
+    min-width: 260px;
+    max-width: 400px;
+    height: fit-content;
+}
+.socials div{
+    display: flex;
+}
+.socials a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: small;
+    color: black;
+}
+.weblink div{
+    background-color: rgb(233, 233, 233);
+    border-radius: 7.5px;
+    padding: 2px 6px;
+}
+.weblink{
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+    width: 100%;
+}
+.weblink select{
+    outline: none;
+    border: none;
+    width: 120px;
+    font-weight: 600;
+    font-size: small;
+    background-color: rgb(233, 233, 233);
+    border-radius: 7.5px;
+    padding: 2px 6px 4px 6px;
+}
+.alltime{
+    display: flex;
+    flex-direction: column;
+}
+
+.alltime div{
+    display: flex;
+    justify-content: space-between;
+}
+.alltimedate{
+    display: flex;
+    flex-direction: column;
+}
+.alltimedate p{
+    color: rgb(100, 100, 100);
+    font-size: smaller;
+}
+.alltimebar{
+    height: 4px;
+    background-color: rgba(121, 121, 121, 0.422);
+    position: relative;
+    margin: 6px 0;
+    border-radius: 10px;
+    width: 100%;
+}
+.alltimebar span{
+    position: absolute;
+    top: -8.5px;
+    color: red;
+    font-weight: bolder;
 }

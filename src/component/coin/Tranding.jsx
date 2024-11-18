@@ -1,6 +1,7 @@
 import React from "react";
 import CoinChart from "./CoinChart";
 import s from "./Tranding.module.css";
+import { Link } from "react-router-dom";
 
 const Tranding = ({ Coins, title }) => {
   const tranding = [...Coins];
@@ -27,10 +28,17 @@ const Tranding = ({ Coins, title }) => {
           {tranding.map((coin, index) => (
             <tr key={index}>
               <td className={s.trandingimgname}>
-                <div>
-                  <img src={coin.image} alt={coin.symbol} />
-                </div>
-                <p>{coin.symbol.toUpperCase()}</p>
+                <Link
+                  className={s.link}
+                  to={`/coin/${coin.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div>
+                    <img src={coin.image} alt={coin.symbol} />
+                  </div>
+                  <p>{coin.symbol.toUpperCase()}</p>
+                </Link>
               </td>
               {title === "Top Volume" ? (
                 <td>$ {formatNumber(coin.total_volume)} </td>

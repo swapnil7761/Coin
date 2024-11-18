@@ -19,6 +19,7 @@ function Cointable({ filterCoins, handleSort }) {
           <table>
             <thead>
               <tr>
+                <th>#</th>
                 <th
                   className="sticky-column"
                   onClick={() => handleSort("name")}

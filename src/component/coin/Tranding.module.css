@@ -42,3 +42,10 @@
     width: 100%;
     transform: translate(-140px,0)
   }
+  .link{
+    text-decoration: none;
+    color: unset;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }

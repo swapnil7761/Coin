@@ -11,20 +11,22 @@ const Coin = ({ coin }) => {
 
   return (
     <>
-      <Link
-        className={s.link}
-        to={`/coin/${coin.id}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <td className={`sticky-column ${s.name}`}>
+      <td>{coin.market_cap_rank}</td>
+      <td className={`sticky-column ${s.name}`}>
+        <Link
+          className={s.link}
+          to={`/coin/${coin.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <div className={s.imgsym}>
             <img src={coin.image} alt={`${coin.name} image`} />
             <span className={s.symbol}>{coin.symbol}</span>
           </div>
-          <div>{coin.name}</div>
-        </td>
-      </Link>
+          <div className={s.nametitle}>{coin.name}</div>
+        </Link>
+      </td>
+
       <td>${formatNumber(coin.current_price)} </td>
       <td
         className={

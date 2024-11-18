@@ -5,7 +5,7 @@
  }
  .name{
   display: grid;
-  grid: auto / 40px 120px;
+  grid: auto / auto auto;
   align-items: center;
   width: 100%;
   gap: 12px;
@@ -13,11 +13,19 @@
   text-align: left;
   line-height: 20px;
  }
+ .nametitle{
+  width: 120px;
+ }
 .imgsym{
   text-align: center;
   line-height: 12px;
+  display: grid;
+  gap: 6px;
 }
 .link{
   text-decoration: none;
   color: unset;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

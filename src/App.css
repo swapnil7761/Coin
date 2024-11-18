@@ -17,7 +17,6 @@
   margin: 0 auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
-  padding: 0 8px;
 }
 
 /* Table styling */
@@ -29,7 +28,7 @@ table {
 
 /* Table header and cell styling */
 th, td {
-  padding: 10px 20px;
+  padding: 6px 20px;
   background: rgb(255, 255, 255);
   text-wrap: nowrap;
   text-align: right;
@@ -54,12 +53,13 @@ th{
 }
 /* Sticky column styling */
 .sticky-column {
-  margin-right: 50px;
   position: sticky;
   background: rgb(255, 255, 255);
   left: 0;
   z-index: 1;
   text-align: left;
+  padding-left: 10px;
+  padding-right: 20px;
 }
 img {
   width: 40px;
@@ -80,14 +80,69 @@ img {
  }
 @media screen and (max-width:1000px){
   .sticky-column{
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.215);
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.1);
     margin: 0;
   }
 }
+
+
+.head{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  
+}
+.headtext{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left:  40px;
+}
+.searchsection{
+  align-self: center;
+  display: flex;
+  align-items: center;
+  background-color: #ececec;
+  color: gray;
+  height: 40px;
+  border-radius: 7.5px;
+}
+.searchicon{
+  margin: 0 8px;
+  font-size: xx-large;
+  transform: rotateY(40deg);
+  transform: translateY(-3px);
+}
+.searchsection input[type="text"]{
+  background-color: transparent;
+  color: gray;
+  border: unset;
+  font-size: medium;
+  width: 85%;
+}
+.searchsection input[type="text"]:focus {
+  outline: none;
+}
+@media screen and (max-width:990px){
+  .head{
+    display: grid;
+    grid-template-columns:  1fr;
+  }  
+  .headtext{
+    margin: 8px 0px;
+    padding: 0 20px;
+    word-break: break-all;
+  }
+  .searchsection{
+    width: 280px;
+    justify-self: center;
+  }
+}
+
 .trandingSection{
   display:grid;
   grid-template-columns: auto auto ;
-  grid-template-rows: 300px;
   justify-content: center;
   align-items: center;
   gap: 12px;
@@ -118,7 +173,7 @@ img {
   display: grid;
   align-items: center;
   height: fit-content;
-  min-width: 320px;
+  min-width: 310px;
   overflow: auto;
   margin: 10px;
   position: relative;
@@ -178,7 +233,6 @@ img {
 .detailpage{
   display: grid;
   grid-template-columns:  1fr 3fr;
-  margin: 10px;
 }
 .trandingcoins{
   position: relative;
@@ -197,9 +251,32 @@ img {
 }
 .sidedatacover{
   display: grid;
-  grid-template-columns: auto auto ;
+  grid-template-columns: auto auto auto;
   gap: 12px;
 }
+.adimg{
+  position: relative;
+}
+.adtag{
+  position: absolute;
+  right: 10px;bottom: 10px;
+  background-color: rgb(61, 61, 61);
+  border-radius: 7.5px;
+  padding: 4px 8px;
+  color: white;
+}
+.adimg img{
+  width: 300px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+@media screen and (max-width:1260px){
+  .adimg{
+    display: none;
+  }
+
+  }
 .marketdata{
   display: grid;
   gap: 12px;

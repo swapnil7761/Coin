@@ -16,16 +16,20 @@ const Sidedata = ({ globaldata }) => {
   const ethChange = 0.37;
   const othersChange = -1.82;
 
+  const formatNumber = (number) => {
+    return new Intl.NumberFormat().format(number);
+  };
+
   return (
     <div className="sidedatacover">
       <div className="marketdata ">
         <div className="container">
           <h3>Total Market Capitalization</h3>
-          <p>$ {globaldata.total_market_cap.usd}</p>
+          <p>$ {formatNumber(globaldata.total_market_cap.usd.toFixed(0))}</p>
         </div>
         <div className="container">
           <h3>Total Volume </h3>
-          <p>$ {globaldata.total_volume.usd}</p>
+          <p>$ {formatNumber(globaldata.total_volume.usd.toFixed(0))}</p>
         </div>
       </div>
       <div className="dominancedatacover container">
@@ -154,6 +158,12 @@ const Sidedata = ({ globaldata }) => {
             }}
           />
         </div>
+      </div>
+      <div className="adimg">
+        <a href="https://tars.pro/">
+          <img src="ad.jpg" />
+        </a>
+        <div className="adtag">Ad</div>
       </div>
     </div>
   );

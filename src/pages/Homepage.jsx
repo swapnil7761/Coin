@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import Cointable from "../component/coin/Cointable";
 import Tranding from "../component/coin/Tranding";
 import Sidedata from "../component/coin/Sidedata";
+import Headtext from "../component/main/Headtext";
 
 function Homepage() {
-  const [filterCoins, setFilterCoins] = useState([]);
+  const [allCoins, setAllCoins] = useState([]); // Store all coins for trending and initial data
+  const [filterCoins, setFilterCoins] = useState([]); // Filtered list for search and sort only
   const [globaldata, setGlobaldata] = useState({});
   const [atoz, setAtoz] = useState(true);
   const [filterTop, setFilterTop] = useState(null);
+  const [search, setSearch] = useState("");
 
   const options = {
     method: "GET",
@@ -24,73 +27,122 @@ function Homepage() {
     )
       .then((res) => res.json())
       .then((res) => {
-        setFilterCoins(res); // Initialize filtered coins when data is fetched
+        setAllCoins(res); // Store full data for trending section
+        setFilterCoins(res);
+        console.log(allCoins);
+        // Initialize searchable coin list with full data
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error("Failed to fetch coins:", err));
 
     fetch("https://api.coingecko.com/api/v3/global", options)
       .then((res) => res.json())
       .then((res) => {
-        setGlobaldata(res.data); // Set the global data
+        setGlobaldata(res.data);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error("Failed to fetch global data:", err));
   }, []);
 
-  // Log the global data once it's set
   useEffect(() => {
     if (Object.keys(globaldata).length !== 0) {
-      console.log(globaldata);
     }
-  }, [globaldata]); // This useEffect will run whenever globaldata changes
+  }, [globaldata]);
 
-  const handleSort = (key) => {
-    const sortedCoins = [...filterCoins].sort((a, b) => {
-      if (key === "name") {
-        return atoz
-          ? a.name.localeCompare(b.name)
-          : b.name.localeCompare(a.name);
+  const handleSort = useCallback(
+    (key) => {
+      const sortedCoins = [...filterCoins].sort((a, b) => {
+        if (key === "name") {
+          return atoz
+            ? a.name.localeCompare(b.name)
+            : b.name.localeCompare(a.name);
+        } else {
+          return atoz ? a[key] - b[key] : b[key] - a[key];
+        }
+      });
+      setFilterCoins(sortedCoins);
+      setAtoz(!atoz);
+    },
+    [atoz, filterCoins]
+  );
+
+  const gainer = useMemo(() => {
+    return [...allCoins]
+      .sort(
+        (a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h
+      )
+      .slice(0, 6);
+  }, [allCoins]);
+
+  const loser = useMemo(() => {
+    return [...allCoins]
+      .sort(
+        (a, b) => a.price_change_percentage_24h - b.price_change_percentage_24h
+      )
+      .slice(0, 6);
+  }, [allCoins]);
+
+  const Volume = useMemo(() => {
+    return [...allCoins]
+      .sort((a, b) => b.total_volume - a.total_volume)
+      .slice(0, 6);
+  }, [allCoins]);
+
+  const trandingArr = useMemo(
+    () => [
+      { type: gainer, heading: "Top Gainers" },
+      { type: loser, heading: "Top Losers" },
+      { type: Volume, heading: "Top Volume" },
+    ],
+    [gainer, loser, Volume]
+  );
+
+  const handleTrandingClick = useCallback(
+    (key) => {
+      if (key === "volume") {
+        setFilterTop(trandingArr[2]);
+      } else if (key === "loss") {
+        setFilterTop(trandingArr[1]);
       } else {
-        return atoz ? a[key] - b[key] : b[key] - a[key];
+        setFilterTop(trandingArr[0]);
       }
-    });
+    },
+    [trandingArr]
+  );
 
-    setFilterCoins(sortedCoins);
-    setAtoz(!atoz);
-  };
-
-  const gainer = [...filterCoins]
-    .sort(
-      (a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h
-    )
-    .slice(0, 6);
-  const loser = [...filterCoins]
-    .sort(
-      (a, b) => a.price_change_percentage_24h - b.price_change_percentage_24h
-    )
-    .slice(0, 6);
-  const Volume = [...filterCoins]
-    .sort((a, b) => b.total_volume - a.total_volume)
-    .slice(0, 6);
-
-  const trandingArr = [
-    { type: gainer, heading: "Top Gainers" },
-    { type: loser, heading: "Top Losers" },
-    { type: Volume, heading: "Top Volume" },
-  ];
-
-  const handleTrandingClick = (key) => {
-    if (key === "volume") {
-      setFilterTop(trandingArr[2]);
-    } else if (key === "loss") {
-      setFilterTop(trandingArr[1]);
-    } else {
-      setFilterTop(trandingArr[0]);
-    }
-  };
+  useEffect(() => {
+    const searchResults = search
+      ? allCoins.filter(
+          (coin) =>
+            coin.name.toLowerCase().includes(search.toLowerCase()) ||
+            coin.symbol.toLowerCase().includes(search.toLowerCase())
+        )
+      : allCoins;
+    setFilterCoins(searchResults);
+  }, [search, allCoins]);
 
   return (
     <>
-      <h1>Cryptocurrency Market</h1>
+      <div className="head">
+        <div className="headtext">
+          <p>
+            Today’s Crypto Prices The current state of the Indian crypto market
+            is dynamic and diverse. With a range of trending crypto coins
+            capturing attention, keep an eye out on the movement of the crypto
+            market and their prices. As the top gainers and the top crypto
+            losers emerge, the market showcases its potential for significant
+            shifts. Bitcoin‘s dominance remains a key indicator in influencing
+            market sentiment.
+          </p>
+        </div>
+        <div className="searchsection">
+          <p className="searchicon">⌕</p>
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search"
+          />
+        </div>
+      </div>
       <div className="trandingSection">
         <div className="trandingcoins">
           <div className="trandingbtns">
@@ -104,7 +156,22 @@ function Homepage() {
         </div>
         <Sidedata globaldata={globaldata} />
       </div>
-      <Cointable handleSort={handleSort} filterCoins={filterCoins} />
+
+      {/* Display "No match found" if there are no filtered coins */}
+      {filterCoins.length > 0 ? (
+        <Cointable handleSort={handleSort} filterCoins={filterCoins} />
+      ) : (
+        <p
+          style={{
+            margin: "0  45%",
+            color: "gray",
+            overflow: "visible",
+            textWrap: "nowrap",
+          }}
+        >
+          No match found
+        </p>
+      )}
     </>
   );
 }
