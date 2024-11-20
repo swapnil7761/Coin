@@ -156,7 +156,12 @@ function Homepage() {
         </div>
         <Sidedata globaldata={globaldata} />
       </div>
-
+      {/* <div className="adimg">
+        <a href="https://tars.pro/">
+          <img src="ad.jpg" />
+        </a>
+        <div className="adtag">Ad</div>
+      </div> */}
       {/* Display "No match found" if there are no filtered coins */}
       {filterCoins.length > 0 ? (
         <Cointable handleSort={handleSort} filterCoins={filterCoins} />

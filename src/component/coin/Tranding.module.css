@@ -1,5 +1,6 @@
 .tranding{
-   width: 300px;
+   width: 100%;
+   flex-grow: 1;
    height: 162px;
    overflow: hidden;
 }
@@ -16,13 +17,20 @@
 }
 @media screen and (max-width:990px){
     .tranding{
-        width: 300px;
+        width: 100%;
         height: 282px;
      }
      .trandingtable tbody tr td{
         padding: 3px 8px;
     }
 }
+@media screen and (max-width:670px){
+    .tranding{
+        width: calc(100vw - 20px);
+        height: 282px;
+     }
+    
+  }
 .trandingimgname{
     display: flex;
     align-items: center;

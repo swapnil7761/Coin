@@ -18,6 +18,8 @@ const Coindetail = ({ coin }) => {
     return new Intl.NumberFormat().format(number);
   };
 
+  console.log(coin.categories);
+
   return (
     <>
       <div className={s.alldetail}>
@@ -191,7 +193,7 @@ Cryptocurrencies with a low ratio are less liquid and most likely present less s
           </div>
         </div>
 
-        <div className={`${s.socials} container`}>
+        <div className={`${s.socials} `}>
           <div>
             <div>Websites</div>
             <div className={s.weblink}>
@@ -343,6 +345,16 @@ Cryptocurrencies with a low ratio are less liquid and most likely present less s
             <div>
               <p>${coin.market_data.atl.usd.toFixed(2)}</p>
               <p>${coin.market_data.ath.usd.toFixed(2)}</p>
+            </div>
+          </div>
+          <div className={s.cointags}>
+            Tags
+            <div className={s.tagdiv}>
+              {coin.categories.map((tag, index) => (
+                <div className={s.tag} key={index}>
+                  {tag}
+                </div>
+              ))}
             </div>
           </div>
         </div>

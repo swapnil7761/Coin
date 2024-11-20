@@ -36,8 +36,10 @@ const Coindetail = () => {
   return (
     <div className="detailpage">
       <Detail coin={coin} />
-      <Detailchart coin={coin} />
-      <Info coin={coin} />
+      <div className="detailpagemain">
+        <Detailchart coin={coin} />
+        <Info coin={coin} />
+      </div>
     </div>
   );
 };

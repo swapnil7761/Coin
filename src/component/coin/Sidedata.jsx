@@ -159,12 +159,6 @@ const Sidedata = ({ globaldata }) => {
           />
         </div>
       </div>
-      <div className="adimg">
-        <a href="https://tars.pro/">
-          <img src="ad.jpg" />
-        </a>
-        <div className="adtag">Ad</div>
-      </div>
     </div>
   );
 };
