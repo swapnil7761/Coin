@@ -1,0 +1,86 @@
+.newslettersection{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+    background-color:#f9fbfd;
+}
+.newslettercontent{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    align-content: center;
+    gap: 10px;
+    margin: 0 30px ;
+    padding: 20px;
+}
+.newslettersection img{
+    width: 100%;
+    height: 100%;
+    max-height: 300px;
+    object-fit:cover ;
+    border-radius: unset;
+    box-shadow: unset;
+}
+.newletterhead{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    font-size: 120%;
+}
+.newletterhead p{
+    color: gray;
+}
+.newslettersubmit{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+.newslettersubmit input{
+    border: 1px solid rgba(128, 128, 128, 0.452);
+    background-color: rgb(234, 234, 234);
+    font-size: medium;
+    padding: 10px 16px;
+    border-radius: 5px;
+    min-width: 100%;
+}
+.newslettersubmit button{
+    border: 1px solid rgba(128, 128, 128, 0.452);
+    background-color: rgb(50, 50, 247);
+    color: white;
+    font-size: medium;
+    padding: 10px 16px;
+    border-radius: 5px;
+    min-width: 50%;
+}
+
+@media screen and (max-width:890px){
+    .newletterhead{
+        font-size: 100%;
+    }
+    .newslettercontent{
+        margin: 0;
+    }
+    .newslettersubmit{
+      grid-template-columns: 1fr;
+    }
+    .newslettersubmit button{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:670px){
+    .newslettersection{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+    .newslettercontent{
+        grid-row: 2/3;
+    }
+    .newsletterbanner{
+        grid-row: 1/ 2;
+    }
+    .newslettersection img{
+        height: 200px;
+    }
+}

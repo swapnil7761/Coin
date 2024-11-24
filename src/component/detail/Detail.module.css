@@ -137,10 +137,13 @@
     color: black;
 }
 .weblink div{
-    background-color: rgb(233, 233, 233);
+    background-color: rgba(242, 242, 242, 0.861);
     border-radius: 7.5px;
     padding: 2px 6px;
     height: fit-content;
+}
+.weblink div:hover{
+    background-color: #e0e0e0;
 }
 .weblink{
     display: flex;
@@ -154,9 +157,12 @@
     width: 120px;
     font-weight: 600;
     font-size: 12px;
-    background-color: rgb(233, 233, 233);
+    background-color: rgba(242, 242, 242, 0.861);
     border-radius: 7.5px;
     padding: 0 0 1px 2px;
+}
+.weblink select:hover{
+    background-color: #e6e6e6;
 }
 .alltime{
     display: flex;
@@ -232,11 +238,15 @@
   }
   
 .tag{
-    background-color: rgb(233, 233, 233) ;
+    border: 1px solid rgba(183, 183, 183, 0.336) ;
     display: grid;
     align-items: center;
     padding: 1px 6px 2px;
     border-radius: 7.5px;
     font-size: 15px;
     height: fit-content;
+}
+.tag:hover{
+    background-color: #e4e3e3;
+    cursor: pointer;
 }

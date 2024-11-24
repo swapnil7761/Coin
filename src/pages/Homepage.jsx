@@ -3,6 +3,9 @@ import Cointable from "../component/coin/Cointable";
 import Tranding from "../component/coin/Tranding";
 import Sidedata from "../component/coin/Sidedata";
 import Headtext from "../component/main/Headtext";
+import Headbar from "../component/main/Headbar";
+import Footer from "../component/main/Footer";
+import Newsletter from "../component/main/Newsletter";
 
 function Homepage() {
   const [allCoins, setAllCoins] = useState([]); // Store all coins for trending and initial data
@@ -107,6 +110,9 @@ function Homepage() {
     },
     [trandingArr]
   );
+  const handleSearchinput = (e) => {
+    setSearch(e.target.value);
+  };
 
   useEffect(() => {
     const searchResults = search
@@ -121,28 +127,7 @@ function Homepage() {
 
   return (
     <>
-      <div className="head">
-        <div className="headtext">
-          <p>
-            Today’s Crypto Prices The current state of the Indian crypto market
-            is dynamic and diverse. With a range of trending crypto coins
-            capturing attention, keep an eye out on the movement of the crypto
-            market and their prices. As the top gainers and the top crypto
-            losers emerge, the market showcases its potential for significant
-            shifts. Bitcoin‘s dominance remains a key indicator in influencing
-            market sentiment.
-          </p>
-        </div>
-        <div className="searchsection">
-          <p className="searchicon">⌕</p>
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search"
-          />
-        </div>
-      </div>
+      <Headbar handleSearchinput={handleSearchinput} search={search} />
       <div className="trandingSection">
         <div className="trandingcoins">
           <div className="trandingbtns">
@@ -156,13 +141,7 @@ function Homepage() {
         </div>
         <Sidedata globaldata={globaldata} />
       </div>
-      {/* <div className="adimg">
-        <a href="https://tars.pro/">
-          <img src="ad.jpg" />
-        </a>
-        <div className="adtag">Ad</div>
-      </div> */}
-      {/* Display "No match found" if there are no filtered coins */}
+      <Headtext />
       {filterCoins.length > 0 ? (
         <Cointable handleSort={handleSort} filterCoins={filterCoins} />
       ) : (
@@ -177,6 +156,8 @@ function Homepage() {
           No match found
         </p>
       )}
+      <Newsletter />
+      <Footer />
     </>
   );
 }

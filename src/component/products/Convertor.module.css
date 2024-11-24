@@ -1,0 +1,58 @@
+.convertorsection{
+    margin: 10px auto;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(243, 243, 243);
+    border: 1px solid rgba(128, 128, 128, 0.28);
+    border-radius: 10px;
+    padding:20px ;
+    text-wrap: wrap;
+    font-size: large;
+}
+.inputsection{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.inputsection input,.inputsection select{
+    padding: 4px 6px;
+    outline: unset;
+    border: 1px solid rgba(128, 128, 128, 0.28);
+    border-radius: 5px;
+    width: 250px;
+}
+
+.inputoption{
+    display: flex;
+    gap: 6px;
+}
+@media screen and (max-width:580px){
+    .convertorsection{   
+        text-align: center;
+        width: calc(100vw - 20px);
+        margin:  10px;
+    }
+
+    .inputoption{
+        flex-direction: column;
+    }
+    .convertorsection button{
+        margin: 0 auto;
+    }
+}
+.inputsection button{
+    border: none;
+    background-color: rgb(215, 215, 215);
+    border-radius: 5px;
+    padding: 4px 8px;
+    width: fit-content;
+}
+.convertbuttonsection{
+    display: grid;
+    text-align: center;
+    gap: 6px;
+}
+.convertbuttonsection button{
+    margin: auto;
+}

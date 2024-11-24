@@ -9,7 +9,10 @@
     color: gray;
 }
 .trandingtitle{
-    margin: 2px 8px 10px;
+    margin: 2px 8px;
+    gap: 7px;
+    display: grid
+;
 }
 .trandingtable tbody tr td{
     border: none;

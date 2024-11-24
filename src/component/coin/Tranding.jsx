@@ -43,7 +43,12 @@ const Tranding = ({ Coins, title }) => {
               {title === "Top Volume" ? (
                 <td>$ {formatNumber(coin.total_volume)} </td>
               ) : (
-                <td>$ {coin.current_price.toFixed(2)} </td>
+                <td>
+                  ${" "}
+                  {coin.current_price < 0
+                    ? coin.current_price.toFixed(6)
+                    : coin.current_price.toFixed(2)}
+                </td>
               )}
               <td
                 className={
