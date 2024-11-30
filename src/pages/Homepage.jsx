@@ -6,6 +6,7 @@ import Headtext from "../component/main/Headtext";
 import Headbar from "../component/main/Headbar";
 import Footer from "../component/main/Footer";
 import Newsletter from "../component/main/Newsletter";
+import CoinAnalysis from "../component/analysis/CoinAnalysis";
 
 function Homepage() {
   const [allCoins, setAllCoins] = useState([]); // Store all coins for trending and initial data
@@ -128,6 +129,7 @@ function Homepage() {
   return (
     <>
       <Headbar handleSearchinput={handleSearchinput} search={search} />
+      <Headtext />
       <div className="trandingSection">
         <div className="trandingcoins">
           <div className="trandingbtns">
@@ -141,7 +143,6 @@ function Homepage() {
         </div>
         <Sidedata globaldata={globaldata} />
       </div>
-      <Headtext />
       {filterCoins.length > 0 ? (
         <Cointable handleSort={handleSort} filterCoins={filterCoins} />
       ) : (

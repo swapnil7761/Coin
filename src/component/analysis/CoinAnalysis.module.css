@@ -1,0 +1,81 @@
+.analysisdiv{
+    margin-top: 8px;
+}   
+  .marketanalysis {
+    margin: auto;
+    padding:0 10px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+  .section h2 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .section p, .section li {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  .newsitem {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-left: 4px solid #0073e6;
+  }
+  .newshead{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .newsitem h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+  }
+  
+  .newsitem p {
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    .marketanalysis {
+      padding: 10px;
+    }
+  
+    .section h2 {
+      font-size: 1.2rem;
+    }
+  
+    .section p, .section li {
+      font-size: 0.9rem;
+    }
+  
+    .newsitem h3 {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 450px) {
+  .newshead{
+    flex-direction: column;
+    gap: 0;
+  }
+}

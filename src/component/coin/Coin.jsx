@@ -8,7 +8,10 @@ const Coin = ({ coin }) => {
   const formatNumber = (number) => {
     return new Intl.NumberFormat().format(number);
   };
-
+  // Helper to safely get percentage values
+  const getPercentageChange = (value) => {
+    return value != null ? Math.abs(value.toFixed(2)) : "N/A";
+  };
   return (
     <>
       <td>{coin.market_cap_rank}</td>
@@ -26,7 +29,6 @@ const Coin = ({ coin }) => {
           <div className={s.nametitle}>{coin.name}</div>
         </Link>
       </td>
-
       <td>${formatNumber(coin.current_price)} </td>
       <td
         className={
@@ -36,13 +38,13 @@ const Coin = ({ coin }) => {
         <span className={"updown"}>
           {coin.price_change_percentage_1h_in_currency >= 0 ? "▲" : "▼"}
         </span>
-        {Math.abs(coin.price_change_percentage_1h_in_currency.toFixed(2))}%
+        {getPercentageChange(coin.price_change_percentage_1h_in_currency)}%
       </td>
       <td className={coin.price_change_percentage_24h >= 0 ? "green" : "red"}>
         <span className={"updown"}>
           {coin.price_change_percentage_24h >= 0 ? "▲" : "▼"}
         </span>
-        {Math.abs(coin.price_change_percentage_24h.toFixed(2))}%
+        {getPercentageChange(coin.price_change_percentage_24h)}%
       </td>
       <td
         className={
@@ -52,7 +54,7 @@ const Coin = ({ coin }) => {
         <span className={"updown"}>
           {coin.price_change_percentage_7d_in_currency >= 0 ? "▲" : "▼"}
         </span>
-        {Math.abs(coin.price_change_percentage_7d_in_currency.toFixed(2))}%
+        {getPercentageChange(coin.price_change_percentage_7d_in_currency)}%
       </td>
       <td>${formatNumber(coin.market_cap)}</td>
       <td>${formatNumber(coin.total_volume)}</td>

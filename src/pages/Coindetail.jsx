@@ -6,6 +6,7 @@ import Info from "../component/detail/Info";
 import Headbar from "../component/main/Headbar";
 import Footer from "../component/main/Footer";
 import Newsletter from "../component/main/Newsletter";
+import CoinAnalysis from "../component/analysis/CoinAnalysis";
 
 const Coindetail = () => {
   const { id } = useParams();
@@ -50,8 +51,10 @@ const Coindetail = () => {
         <div className="detailpagemain">
           <Detailchart coin={coin} />
           <Info coin={coin} />
+          <CoinAnalysis coin={coin} />
         </div>
       </div>
+
       <Newsletter />
       <Footer />
     </>
