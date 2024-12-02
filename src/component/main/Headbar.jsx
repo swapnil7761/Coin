@@ -7,7 +7,7 @@ const Headbar = ({ handleSearchinput, search }) => {
       <div className="headmenu">
         <div className="headlogo">
           <Link to={`/`} target="_self" rel="noopener noreferrer">
-            <img src="/coinlogo.png" alt="" />
+            <img src="/coinlogoblack.png" alt="" />
           </Link>
         </div>
         <div className="headnavbar">
@@ -22,7 +22,11 @@ const Headbar = ({ handleSearchinput, search }) => {
                 Exchange
               </Link>
             </li>
-            <li>Community</li>
+            <li>
+              <Link to={`/community`} target="_self" rel="noopener noreferrer">
+                Community
+              </Link>
+            </li>
             <li>
               <Link
                 to={`/products/convertor`}

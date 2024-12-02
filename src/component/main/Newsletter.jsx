@@ -25,7 +25,7 @@ const Newsletter = () => {
       <div data-role="banner-content" className={s.newletterbanner}>
         <img
           data-role="banner-image"
-          src="https://s2.coinmarketcap.com/static/cloud/img/newsletter_bg_light.svg?_=fffc8c0"
+          src="newsletterblack.png"
           loading="lazy"
           alt="Newsletter Banner"
         />

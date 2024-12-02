@@ -54,7 +54,7 @@ function Cointable({ filterCoins, handleSort }) {
                 <tr
                   key={coin.id}
                   className="table-row"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  style={{ animationDelay: `${index * 0.03}s` }}
                 >
                   <Coin coin={coin} />
                 </tr>

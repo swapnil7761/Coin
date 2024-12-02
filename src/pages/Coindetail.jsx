@@ -11,7 +11,7 @@ import CoinAnalysis from "../component/analysis/CoinAnalysis";
 const Coindetail = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState(null); // Set initial state to null
-
+  const [allCoins, setAllCoins] = useState([]);
   useEffect(() => {
     const options = {
       method: "GET",
@@ -20,6 +20,17 @@ const Coindetail = () => {
         "x-cg-demo-api-key": "CG-PyRvXUMXcFVqbTgCszAN4FUK",
       },
     };
+    fetch(
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&sparkline=true&price_change_percentage=1h%2C7d",
+      options
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        setAllCoins(res);
+        setFilterCoins(res);
+        console.log(allCoins);
+      })
+      .catch((err) => console.error("Failed to fetch coins:", err));
 
     fetch(`https://api.coingecko.com/api/v3/coins/${id}`, options)
       .then((res) => res.json())
@@ -35,9 +46,7 @@ const Coindetail = () => {
   }, [coin]);
   if (!coin) {
     return <div>Loading...</div>;
-  } // Display loading message while data is being fetched
-  console.log(coin);
-
+  }
   let supplyrate = (
     (coin.market_data.circulating_supply * 100) /
     coin.market_data.max_supply

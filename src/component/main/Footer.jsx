@@ -6,7 +6,7 @@ const Footer = () => {
     <footer data-role="global-container" className={s.footer}>
       <div className={s.footersection}>
         <div>
-          <img src="./coinlogo.png" alt="logo" />
+          <img src="./coinlogoblack.png" alt="logo" />
         </div>
         <div className={s.footernav}>
           <div>
@@ -79,9 +79,6 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#">Cookie preferences</a>
-              </li>
-              <li>
                 <a href="/cookie-policy/" target="_blank" rel="noopener">
                   Cookie policy
                 </a>
@@ -93,16 +90,6 @@ const Footer = () => {
                   rel="noopener"
                 >
                   Community Rules
-                </a>
-              </li>
-              <li>
-                <a href="/disclaimer/" target="_blank" rel="noopener">
-                  Disclaimer
-                </a>
-              </li>
-              <li>
-                <a href="/methodology/" target="_blank" rel="noopener">
-                  Methodology
                 </a>
               </li>
               <li>
@@ -164,15 +151,6 @@ const Footer = () => {
                   rel="noopener"
                 >
                   X (Twitter)
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://coinmarketcap.com/community/profile/CoinMarketCap/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Community
                 </a>
               </li>
               <li>

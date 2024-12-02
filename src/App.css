@@ -7,9 +7,8 @@
 
 .container{
   padding: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.100);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.039);
-  border-radius: 7.5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 .table-wrapper {
   max-width: fit-content;
@@ -97,11 +96,11 @@ img {
   margin: 0 auto;
   display: grid;
   gap: 20px;
-  margin:0 10px ;
+  padding:0px 10px 0 ;
   grid-template-columns: auto auto;
   justify-content: space-between;
   border-bottom: 1px solid rgba(128, 128, 128, 0.24);
-  
+  background-color: rgb(251, 170, 49);  
 }
 .headmenu{
   display: flex;
@@ -127,13 +126,14 @@ img {
 }
 .headmenu ul li{
   width: 100%;
-  padding: 20px 10px;
+  padding: 20px 20px;
   text-align: center;
   align-items: center;
   cursor: pointer;
+  transition: .2s ease-in;
 }
 .head ul li:hover{
-  background-color: rgb(241, 241, 241);
+  background-color: rgb(255, 184, 90);
 }
 @media screen and (max-width:768px){
   .head{
@@ -150,50 +150,64 @@ img {
 }
 
 .searchsection{
-  justify-self: center;
+  justify-self: right;
   max-width: 300px;
   align-self: center;
   display: flex;
   align-items: center;
-  background-color: #f6f4f4;
-  color: rgb(128, 128, 128);
+  background-color: #f4f4f4;
+  color: rgb(63, 63, 63);
   height: 40px;
   border-radius: 7.5px;
+  transition: .3s ease-in;
+}
+.searchsection:hover{
+  background-color: rgb(255, 255, 255);
+  outline: 1px solid rgb(87, 87, 87);
 }
 .searchicon{
-  margin: 0 8px;
+  margin: 0 2px 0 8px;
   font-size: xx-large;
   transform: rotateY(40deg);
   transform: translateY(-3px);
 }
 .searchsection input[type="text"]{
   background-color: transparent;
-  color: gray;
+  color: rgb(71, 71, 71);
   border: unset;
   font-size: medium;
   width: 85%;
 }
 .searchsection input[type="text"]:focus {
-  outline: none;
+  outline: none
 }
 @media screen and (max-width:990px){
   .searchsection{
     width: 280px;
-    justify-self: center;
+    justify-self: right;
   }
 }
 
 .headintro{
   display: flex;
-  justify-self: center;
+  justify-self: left;
   align-items: center;
   gap: 20px;
-  margin: 10px;
+  padding-top: 40px;
+  margin: 10px auto;
   max-width: 1265px;
+  background-color: rgb(255, 255, 255);  
+}
+@media screen and (max-width:1280px){
+  .headintro{
+    flex-direction: column;
+    margin: 10px;
+  }
 }
 @media screen and (max-width:990px){
   .headintro{
     flex-direction: column;
+    margin: 10px;
   }
   .head{
     grid-template-columns: auto;
@@ -219,10 +233,12 @@ img {
   .headnavbar{
     display: none;
   }
+  .searchsection{
+    justify-self: center;
+  }
 }
 .headinfo{
   font-size: 110%;
-  line-height: 24px;
 }
 .headinfoad{
   position: relative;
@@ -412,6 +428,9 @@ img {
   display: grid;
   gap: 12px;
 }
+.marketdata> div{
+  background-color: rgb(255, 255, 255);  
+}
 @media screen and (max-width:670px) and (min-width:455px){
   .marketdata{
     display: grid;
@@ -450,6 +469,7 @@ img {
 .dominancedatacover{
   display: grid;
   gap: 4px;
+  background-color: rgb(255, 255, 255);  
 }
 .dominancedatacover>h3{
   color: gray;
@@ -476,20 +496,99 @@ img {
   text-decoration: none;
   color: black;
 }
+.productmaindiv{
+  background-color: white;
+  padding: 20px ;
+  margin: 10px auto;
+  width: fit-content;
+  border-radius: 7.5px;
+}
 .productheading{
   justify-self: center;
-  padding: 40px 0 0 0;
+  padding: 20px 0 0 0;
   text-align: center;
-  margin: 0 10px;
+  margin:  10px;
 }
 
 .exchangeheading{
   max-width: 1260px;
   justify-self: center;
-  margin: 30px 10px;
+  margin: 10px;
+  padding: 40px 0;
   display: grid;
   gap: 14px;
+  background-color: white;
 }
 .exchangeheading p{
   color: gray;
+}
+.marqueecontainer {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+  margin: 8px 0;
+  background-color: #ffffff;
+  border-top: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.marqueecontent {
+  display: flex;
+  animation: marquee 120s linear infinite;
+}
+.marqueecontainer:hover .marqueecontent {
+  animation-play-state: paused;
+}
+
+.coinitem {
+  display: flex;
+  align-items: center;
+  padding: 8px 25px; /* Adjust spacing between items */
+  white-space: nowrap;
+  border-left: 1px solid rgb(230, 230, 230);
+}
+
+.coinimage {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.coinname {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.coinchange {
+  font-size: 14px;
+}
+
+.coinchange.positive {
+  color: green;
+}
+
+.coinchange.negative {
+  color: red;
+}
+.marqueelink{
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+/* Keyframe animation for smooth scrolling */
+@keyframes marquee {
+  1% {
+    transform: translateX(0%);
+  }
+  49% {
+    transform: translateX(-240%);
+  }
+  51% {
+    transform: translateX(-240%);
+  }
+  99% {
+    transform: translateX(0);
+  }
 }

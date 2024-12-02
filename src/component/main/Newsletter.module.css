@@ -1,8 +1,11 @@
 .newslettersection{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 20px;
-    background-color:#f9fbfd;
+    padding-top: 240px;
+    background: url("footer.svg") top  ;
+    background-size: cover; 
+    width: 100%;
+    height: auto;
 }
 .newslettercontent{
     display: grid;
@@ -10,8 +13,8 @@
     grid-template-rows: auto auto;
     align-content: center;
     gap: 10px;
-    margin: 0 30px ;
-    padding: 20px;
+    margin: 0 20px ;
+    padding: 10px;
 }
 .newslettersection img{
     width: 100%;
@@ -27,8 +30,11 @@
     gap: 12px;
     font-size: 120%;
 }
+.newletterhead h2{
+    color: rgb(223, 223, 223);
+}
 .newletterhead p{
-    color: gray;
+    color: rgb(181, 181, 181);
 }
 .newslettersubmit{
     display: grid;
@@ -37,15 +43,13 @@
     margin-top: 20px;
 }
 .newslettersubmit input{
-    border: 1px solid rgba(128, 128, 128, 0.452);
-    background-color: rgb(234, 234, 234);
+    background-color: rgb(210, 210, 210);
     font-size: medium;
     padding: 10px 16px;
     border-radius: 5px;
     min-width: 100%;
 }
 .newslettersubmit button{
-    border: 1px solid rgba(128, 128, 128, 0.452);
     background-color: rgb(50, 50, 247);
     color: white;
     font-size: medium;
@@ -54,7 +58,15 @@
     min-width: 50%;
 }
 
+@media screen and (max-width:1024px){
+    .newslettersection{
+        padding-top: 180px;
+    }
+}
 @media screen and (max-width:890px){
+    .newslettersection{
+        padding-top: 150px;
+    }
     .newletterhead{
         font-size: 100%;
     }

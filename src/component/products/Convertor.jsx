@@ -9,21 +9,22 @@ const Convertor = () => {
   const [result, setResult] = useState(null);
   const [exchange, setExchange] = useState(false);
 
+  const formatNumber = (number) => {
+    return new Intl.NumberFormat().format(number);
+  };
+
   useEffect(() => {
     fetch("https://api.coingecko.com/api/v3/exchange_rates")
       .then((res) => res.json())
       .then((res) => {
         const ratesData = Object.values(res.rates);
         setRates(ratesData);
-
-        // Set initial rates for rate1 and rate2
         const initialCrypto = ratesData.find((rate) => rate.type === "crypto");
         const initialFiat = ratesData.find((rate) => rate.type === "fiat");
 
         setRate1(initialCrypto || null);
         setRate2(initialFiat || null);
 
-        // Call handleConvert with initial values
         if (initialCrypto && initialFiat) {
           const conversion = (1 * initialCrypto.value) / initialFiat.value;
           setResult(
@@ -48,20 +49,20 @@ const Convertor = () => {
     const conversion = (parseFloat(amount) * toRate.value) / fromRate.value;
 
     setResult(
-      `${amount} ${fromRate.name} = ${conversion.toFixed(6)} ${toRate.name}`
+      `${amount} ${fromRate.name} = ${formatNumber(conversion.toFixed(6))} ${
+        toRate.name
+      }`
     );
   };
 
   const handleSwitch = () => {
-    // Swap rate1 and rate2
     const updatedRate1 = rate2;
     const updatedRate2 = rate1;
 
-    setRate1(updatedRate1); // Corrected variable name
+    setRate1(updatedRate1);
     setRate2(updatedRate2);
 
-    // Recalculate the result after swapping
-    handleConvert(true); // Ensure the result is recalculated when the switch happens
+    handleConvert(true);
   };
 
   const segregatedRates = {
@@ -69,15 +70,11 @@ const Convertor = () => {
     fiat: rates.filter((rate) => rate.type === "fiat"),
   };
 
-  // Call handleConvert when any dependency changes: amount, rate1, or rate2
   useEffect(() => {
     if (rate1 && rate2 && amount) {
       handleConvert();
     }
   }, [amount, rate1, rate2]);
-
-  console.log(rates);
-
   return (
     <>
       <div className={s.convertorsection}>
