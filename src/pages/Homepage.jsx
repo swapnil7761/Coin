@@ -132,8 +132,12 @@ function Homepage() {
       <div className="trandingSection">
         <div className="trandingcoins">
           <div className="trandingbtns">
-            <div onClick={() => handleTrandingClick("gain")}>g</div>
-            <div onClick={() => handleTrandingClick("loss")}>l</div>
+            <div onClick={() => handleTrandingClick("gain")}>
+              <i class="fi fi-rr-fire-flame-curved"></i>
+            </div>
+            <div onClick={() => handleTrandingClick("loss")}>
+              <i class="fi fi-rs-arrow-trend-down"></i>
+            </div>
             <div onClick={() => handleTrandingClick("volume")}>v</div>
           </div>
           {(filterTop ? [filterTop] : [trandingArr[0]]).map((c, index) => (

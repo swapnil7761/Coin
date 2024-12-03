@@ -1,3 +1,5 @@
+@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
+
 /* Wrapper around the table for horizontal scrolling */
 *{
   box-sizing: border-box;
@@ -405,12 +407,20 @@ img {
   gap: 4px;
   position: absolute;
   right: 15px;top: 15px;
+  z-index: 10;
 }
 .trandingbtns div{
   border: 1px solid rgb(188, 188, 188);
-  width: 25px;height: 25px;
+  border-radius: 5px;
+  width: 30px;height: 30px;
   text-align: center;
   cursor: pointer;
+  position: relative;
+}
+.trandingbtns div i{
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .sidedatacover{
   display: grid;
