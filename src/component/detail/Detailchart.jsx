@@ -95,7 +95,7 @@ const Detailchart = ({ coin }) => {
       .finally(() => {
         setLoading(false);
       });
-  }, [datarange]);
+  }, [datarange, coin.id]);
 
   const createGradient = useCallback((ctx, prices) => {
     const gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);

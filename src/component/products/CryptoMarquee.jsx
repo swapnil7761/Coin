@@ -5,7 +5,6 @@ const CryptoMarquee = ({ allcoins }) => {
   if (!allcoins || allcoins.length === 0) {
     return <div>Loading...</div>;
   }
-
   const topCoins = allcoins.slice(0, 20);
 
   return (
@@ -16,7 +15,6 @@ const CryptoMarquee = ({ allcoins }) => {
             key={index}
             className="marqueelink"
             to={`/coin/${coin.id}`}
-            target="_blank"
             rel="noopener noreferrer"
           >
             <div className="coinitem">

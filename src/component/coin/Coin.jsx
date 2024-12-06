@@ -19,7 +19,6 @@ const Coin = ({ coin }) => {
         <Link
           className={s.link}
           to={`/coin/${coin.id}`}
-          target="_blank"
           rel="noopener noreferrer"
         >
           <div className={s.imgsym}>

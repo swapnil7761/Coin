@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Detail from "../component/detail/Detail";
 import Detailchart from "../component/detail/Detailchart";
 import Info from "../component/detail/Info";
-import Headbar from "../component/main/Headbar";
-import Footer from "../component/main/Footer";
-import Newsletter from "../component/main/Newsletter";
 import CoinAnalysis from "../component/analysis/CoinAnalysis";
 
-const Coindetail = () => {
+const Coindetail = ({ setFilterCoins }) => {
   const { id } = useParams();
   const [coin, setCoin] = useState(null); // Set initial state to null
   const [allCoins, setAllCoins] = useState([]);
@@ -28,7 +25,6 @@ const Coindetail = () => {
       .then((res) => {
         setAllCoins(res);
         setFilterCoins(res);
-        console.log(allCoins);
       })
       .catch((err) => console.error("Failed to fetch coins:", err));
 
@@ -54,7 +50,6 @@ const Coindetail = () => {
 
   return (
     <>
-      <Headbar />
       <div className="detailpage">
         <Detail coin={coin} />
         <div className="detailpagemain">
@@ -63,9 +58,6 @@ const Coindetail = () => {
           <CoinAnalysis coin={coin} />
         </div>
       </div>
-
-      <Newsletter />
-      <Footer />
     </>
   );
 };

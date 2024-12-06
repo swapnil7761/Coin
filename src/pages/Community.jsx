@@ -1,17 +1,12 @@
-import { React, useState, useEffect } from "react";
-import Headbar from "../component/main/Headbar";
-import Footer from "../component/main/Footer";
-import Newsletter from "../component/main/Newsletter";
+import { useState, useEffect } from "react";
 import News from "../component/community/News";
 import Newstab from "../component/community/Newstab";
-import CryptoMarquee from "../component/products/CryptoMarquee";
 
 const Community = () => {
   const [news, setNews] = useState([]);
   const [newstab, setNewstab] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [allCoins, setAllCoins] = useState([]);
 
   // Get today's date and 1 week ago date in the required format
   const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD format
@@ -27,17 +22,6 @@ const Community = () => {
     },
   };
 
-  useEffect(() => {
-    fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&sparkline=true&price_change_percentage=1h%2C7d",
-      options
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setAllCoins(res);
-      })
-      .catch((err) => console.error("Failed to fetch coins:", err));
-  }, []);
   // Fetch news data from CryptoPanic API
   useEffect(() => {
     fetch(
@@ -81,12 +65,8 @@ const Community = () => {
 
   return (
     <>
-      <Headbar />
-      <CryptoMarquee allcoins={allCoins} />
       <News news={news} />
       <Newstab newstab={newstab} />
-      <Newsletter />
-      <Footer />
     </>
   );
 };

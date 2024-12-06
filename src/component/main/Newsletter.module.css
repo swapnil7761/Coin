@@ -36,7 +36,7 @@
 .newletterhead p{
     color: rgb(181, 181, 181);
 }
-.newslettersubmit{
+.newslettersubmit form{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
@@ -73,7 +73,7 @@
     .newslettercontent{
         margin: 0;
     }
-    .newslettersubmit{
+    .newslettersubmit form{
       grid-template-columns: 1fr;
     }
     .newslettersubmit button{

@@ -5,9 +5,6 @@ const Coindetail = ({ coin }) => {
   if (!coin) {
     return <div className={s.loader}></div>; // Display loading spinner
   }
-
-  console.log(coin);
-
   let supplyrate = (
     (coin.market_data.circulating_supply * 100) /
     coin.market_data.max_supply
@@ -17,9 +14,6 @@ const Coindetail = ({ coin }) => {
   const formatNumber = (number) => {
     return new Intl.NumberFormat().format(number);
   };
-
-  console.log(coin.categories);
-
   return (
     <>
       <div className={s.alldetail}>

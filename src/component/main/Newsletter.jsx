@@ -14,12 +14,18 @@ const Newsletter = () => {
           </p>
         </div>
         <div data-role="form-body" className={s.newslettersubmit}>
-          <div>
-            <input placeholder="Enter your e-mail address" type="text" />
-          </div>
-          <div>
-            <button>Subscribe</button>
-          </div>
+          <form>
+            <div>
+              <input
+                placeholder="Enter your e-mail address"
+                type="email"
+                required
+              />
+            </div>
+            <div>
+              <button type="submit">Subscribe</button>
+            </div>
+          </form>
         </div>
       </div>
       <div data-role="banner-content" className={s.newletterbanner}>
