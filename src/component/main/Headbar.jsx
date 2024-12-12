@@ -46,7 +46,7 @@ const Headbar = ({ handleSearchinput, search }) => {
             type="text"
             value={search}
             onChange={handleSearchinput}
-            placeholder="Search"
+            placeholder="Crypto Name or ID"
           />
         </div>
       ) : null}

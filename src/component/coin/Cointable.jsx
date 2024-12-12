@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Coin from "./Coin.jsx";
+import Loading from "../loading/Loading.jsx";
 
 function Cointable({ filterCoins, handleSort }) {
   const [loading, setLoading] = useState(true);
@@ -13,7 +14,7 @@ function Cointable({ filterCoins, handleSort }) {
   return (
     <>
       {loading ? (
-        <div className="loading-spinner">Loading...</div> // Replace with a spinner component if available
+        <Loading />
       ) : (
         <div className="table-wrapper">
           <table>

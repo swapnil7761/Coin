@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import Exchangetable from "../component/exchage/Exchangetable";
+import Loading from "../component/loading/Loading";
 
 const Exchange = () => {
   document.title = "Top Crypto currency Exchanges";
@@ -10,7 +11,7 @@ const Exchange = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const url = "https://api.coingecko.com/api/v3/exchanges?per_page=120";
+    const url = "https://api.coingecko.com/api/v3/exchanges?per_page=40";
     const options = {
       method: "GET",
       headers: {
@@ -51,10 +52,6 @@ const Exchange = () => {
     return <p>{error}</p>;
   }
 
-  if (!exchange.length) {
-    return <p>Loading...</p>;
-  }
-
   return (
     <>
       <div className="exchangeheading">
@@ -62,14 +59,23 @@ const Exchange = () => {
         <p>
           CoinMarketCap ranks and scores exchanges based on traffic, liquidity,
           trading volumes, and confidence in the legitimacy of trading volumes
-          reported.Read More
+          reported.We now track 253 spot exchanges with a total 24h volume of
+          $2.01T. For more info on exchange ranking,{" "}
+          <a href="https://support.coinmarketcap.com/hc/en-us/articles/360052030111-Exchange-Ranking">
+            click here
+          </a>
+          .
         </p>
       </div>
-      <Exchangetable
-        exchange={exchange}
-        filterexchange={filterexchange}
-        handleSort={handleSort}
-      />
+      {exchange.length ? (
+        <Exchangetable
+          exchange={exchange}
+          filterexchange={filterexchange}
+          handleSort={handleSort}
+        />
+      ) : (
+        <Loading />
+      )}
     </>
   );
 };

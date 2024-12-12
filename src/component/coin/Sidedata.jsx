@@ -1,9 +1,10 @@
 import React from "react";
+import Loading from "../loading/Loading";
 
 const Sidedata = ({ globaldata }) => {
   // Handle cases where globaldata might not be defined yet
   if (!globaldata || !globaldata.market_cap_percentage) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   // Safely access the values using optional chaining

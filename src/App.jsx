@@ -10,6 +10,7 @@ import Coindetail from "./pages/Coindetail";
 import Community from "./pages/Community";
 import Exchange from "./pages/Exchange";
 import Products from "./pages/Products";
+import Loading from "./component/loading/Loading";
 
 function App() {
   const [allCoins, setAllCoins] = useState([]);
@@ -59,29 +60,16 @@ function App() {
     setFilterCoins(searchResults);
   }, [search, allCoins]);
 
-  console.log(globaldata);
-
   return (
     <>
       <Router>
         <Headbar handleSearchinput={handleSearchinput} search={search} />
         <CryptoMarquee allcoins={allCoins} />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            borderBottom: "1px solid #dddddd",
-            paddingBottom: "8px",
-            alignContent: "center",
-            fontSize: "16px",
-            fontWeight: "400",
-            margin: "0 10px",
-            color: "gray",
-          }}
-        >
-          <div>@coinmarketcap</div>{" "}
+        <div className="updatedatatime">
+          <div>@coinmarketcap</div>
           <div>updated at: {Date(globaldata.updated_at)}</div>
         </div>
+        {/* <Loading /> */}
         <Routes>
           <Route
             path="/"

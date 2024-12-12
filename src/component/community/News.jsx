@@ -1,11 +1,8 @@
 import React from "react";
 import s from "./News.module.css";
+import Loading from "../loading/Loading";
 
 const News = ({ news }) => {
-  if (!news || news.length === 0) {
-    return <div>Loading...</div>; // Show a styled placeholder
-  }
-
   const headnews = news[0];
   const morenews = news.slice(1, 4);
 
@@ -20,6 +17,7 @@ const News = ({ news }) => {
               Aggregated by <a href="https://newsapi.org/">NewsApi</a>
             </p>
           </div>
+
           <div className={s.headnews}>
             <div>
               <img
@@ -64,7 +62,7 @@ const News = ({ news }) => {
           </div>
         </div>
       ) : (
-        <div>Loading...</div>
+        <Loading />
       )}
     </>
   );

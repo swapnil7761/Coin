@@ -5,12 +5,17 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family:  'Times New Roman', Times, serif;
+}
+body{
+  background-image: url("../public/ad.jpg");
 }
 
 .container{
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+  backdrop-filter: blur(2px);
 }
 .table-wrapper {
   max-width: fit-content;
@@ -103,6 +108,9 @@ img {
   justify-content: space-between;
   border-bottom: 1px solid rgba(128, 128, 128, 0.24);
   background-color: rgb(251, 170, 49);  
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 .headmenu{
   display: flex;
@@ -195,10 +203,20 @@ img {
   justify-self: left;
   align-items: center;
   gap: 20px;
-  padding-top: 40px;
   margin: 10px auto;
   max-width: 1265px;
-  background-color: rgb(255, 255, 255);  
+  background-color: rgb(255, 255, 255); 
+}
+.headinfo h2{
+  margin: 10px 0;
+  font-size: 26px;
+}
+.headinfo p{
+  color: rgb(107, 107, 107);
+  font-size: 17px;
+}
+.bold{
+  font-weight: 600;
 }
 @media screen and (max-width:1280px){
   .headintro{
@@ -535,12 +553,23 @@ img {
 .marqueecontainer {
   overflow: hidden;
   white-space: nowrap;
-  position: relative;
+  position: sticky;
+  top:60px;
+  z-index: 1000;
   width: 100%;
-  margin: 8px 0;
   background-color: #ffffff;
   border-top: 1px solid rgb(230, 230, 230);
   border-bottom: 1px solid rgb(230, 230, 230);
+}
+@media (max-width:990px){
+  .marqueecontainer{
+    top: 106px;
+  }
+}
+@media (max-width:768px){
+  .marqueecontainer{
+    top: 100px;
+  }
 }
 
 .marqueecontent {
@@ -600,5 +629,23 @@ img {
   }
   99% {
     transform: translateX(0);
+  }
+}
+
+
+.updatedatatime{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dddddd;
+  align-content: center;
+  font-size: 14px;
+  padding: 5px;
+  font-weight: 400;
+  color: gray;
+}
+@media (max-width:525px){
+  .updatedatatime{
+    flex-direction: column;
+    text-align: center;
   }
 }

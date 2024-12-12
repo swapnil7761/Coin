@@ -83,7 +83,7 @@ function Homepage({ allCoins, globaldata, filterCoins }) {
 
   return (
     <>
-      <Headtext />
+      <Headtext globaldata={globaldata} />
       <div className="trandingSection">
         <div className="trandingcoins">
           <div className="trandingbtns">
@@ -106,13 +106,14 @@ function Homepage({ allCoins, globaldata, filterCoins }) {
       ) : (
         <p
           style={{
-            margin: "0  45%",
             color: "gray",
-            overflow: "visible",
-            textWrap: "nowrap",
+            fontSize: "24px",
+            justifySelf: "center",
+            margin: "20px 0",
+            color: "tomato",
           }}
         >
-          No match found
+          ... No match found ...
         </p>
       )}
     </>

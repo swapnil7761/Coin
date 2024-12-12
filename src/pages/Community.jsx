@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import News from "../component/community/News";
 import Newstab from "../component/community/Newstab";
+import Loading from "../component/loading/Loading";
 
 const Community = () => {
   const [news, setNews] = useState([]);
@@ -55,18 +56,14 @@ const Community = () => {
       });
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   if (error) {
     return <div>{error}</div>;
   }
 
   return (
     <>
-      <News news={news} />
-      <Newstab newstab={newstab} />
+      {loading ? <Loading /> : <News news={news} />}
+      {loading ? <Loading /> : <Newstab newstab={newstab} />}
     </>
   );
 };

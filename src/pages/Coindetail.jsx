@@ -4,6 +4,7 @@ import Detail from "../component/detail/Detail";
 import Detailchart from "../component/detail/Detailchart";
 import Info from "../component/detail/Info";
 import CoinAnalysis from "../component/analysis/CoinAnalysis";
+import Loading from "../component/loading/Loading";
 
 const Coindetail = ({ setFilterCoins }) => {
   const { id } = useParams();
@@ -41,7 +42,7 @@ const Coindetail = ({ setFilterCoins }) => {
     }
   }, [coin]);
   if (!coin) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   let supplyrate = (
     (coin.market_data.circulating_supply * 100) /

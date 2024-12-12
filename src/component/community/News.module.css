@@ -43,7 +43,7 @@
 }
 .morenewsdiv{
     display: grid;
-    grid-template-columns: 3fr auto;
+    grid-template-columns: 3fr 200px;
     gap: 6px;
     margin-top: 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -59,7 +59,8 @@
     margin-bottom: 7px;
 }
 .morenewsdiv img{
-    width: auto;
+    width: 100%;
+    object-fit: cover;
     max-height: 100px;
     border-radius: 5px;
 }
@@ -73,5 +74,15 @@
     }
     .newssectionheading{
         grid-column: 1/2;
+    }
+}
+@media (max-width:425px){
+    .morenewsdiv{
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .morenewsdiv img{
+        height: 100%;
+        max-height: 200px;
     }
 }
