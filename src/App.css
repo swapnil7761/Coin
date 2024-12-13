@@ -8,28 +8,36 @@
   font-family:  'Times New Roman', Times, serif;
 }
 body{
-  background-image: url("../public/ad.jpg");
 }
 
 .container{
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(5px);
 }
 .table-wrapper {
-  max-width: fit-content;
+  max-width: 1265px;
+  width: 100%;
   overflow-x: auto;
-  margin: 0 auto;
+  margin:  10px;
   overflow-y: hidden;
   scroll-behavior: smooth;
-  position: relative; /* Ensure this stays relative */
+  position: relative; 
+  padding: 0;/* Ensure this stays relative */
+  justify-self: center;
+}
+@media (max-width:1285px){
+  .table-wrapper{
+    width: calc(100% - 20px);
+  }
 }
 
 .table-wrapper thead th {
   padding: 12px 20px;
   z-index: 10; /* Ensure it stays above table rows */
-  background-color: #f5f5f5; /* Optional: Add background to header */
+  background-color: #f5f5f5;
+   /* Optional: Add background to header */
 }
 
 /* Table styling */
@@ -41,7 +49,7 @@ table {
 
 /* Table header and cell styling */
 th, td {
-  padding: 6px 20px;
+  padding: 6px 19.1px;
   background: rgb(255, 255, 255);
   text-wrap: nowrap;
   text-align: right;
@@ -73,6 +81,13 @@ th{
   text-align: left;
   padding-left: 10px;
   padding-right: 20px;
+}
+@media (max-width:768px){
+  .sticky-column{
+    padding-left: 6px;
+    padding-right: 0;
+    max-width: 178px;
+  }
 }
 img {
   width: 40px;
@@ -205,7 +220,6 @@ img {
   gap: 20px;
   margin: 10px auto;
   max-width: 1265px;
-  background-color: rgb(255, 255, 255); 
 }
 .headinfo h2{
   margin: 10px 0;
@@ -411,6 +425,7 @@ img {
   display: grid;
   grid-template-columns:  1fr 3fr;
   gap: 8px;
+  position: relative;
 }
 @media screen and (max-width:768px){
   .detailpagemain{
@@ -457,7 +472,6 @@ img {
   gap: 12px;
 }
 .marketdata> div{
-  background-color: rgb(255, 255, 255);  
 }
 @media screen and (max-width:670px) and (min-width:455px){
   .marketdata{
@@ -497,7 +511,6 @@ img {
 .dominancedatacover{
   display: grid;
   gap: 4px;
-  background-color: rgb(255, 255, 255);  
 }
 .dominancedatacover>h3{
   color: gray;
@@ -525,27 +538,23 @@ img {
   color: black;
 }
 .productmaindiv{
-  background-color: white;
-  padding: 20px ;
   margin: 10px auto;
   width: fit-content;
   border-radius: 7.5px;
 }
 .productheading{
   justify-self: center;
-  padding: 20px 0 0 0;
   text-align: center;
-  margin:  10px;
+  margin: 0 0 20px;
 }
 
 .exchangeheading{
-  max-width: 1260px;
+  max-width: 1265px;
   justify-self: center;
   margin: 10px;
-  padding: 40px 0;
+  padding: 30px 10px;
   display: grid;
   gap: 14px;
-  background-color: white;
 }
 .exchangeheading p{
   color: gray;

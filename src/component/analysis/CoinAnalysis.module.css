@@ -1,11 +1,46 @@
 .analysisdiv{
     margin-top: 8px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    max-width: 50%;
+    min-width: 430px;
+    max-height: calc(100vh - 150px);
+    min-height: 200px;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.66);
+    line-height: 1.3;
 }   
+.askquediv{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.askquediv button{
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: medium ;
+  cursor: pointer;
+  padding: 6px;
+  width: fit-content;
+  transition:  .5s ease;
+}
+.askquediv button:hover{
+  background-color: rgb(236, 236, 236);
+}
+.analysisdiv> h2{
+  background-color: rgb(98, 98, 228) ;
+  color: white;
+  padding: 20px;
+  margin: -10px;
+}
   .marketanalysis {
+    height: 100%;
     margin: auto;
     padding:0 10px;
     font-family: Arial, sans-serif;
-    line-height: 1.6;
   }
   
   .title {
@@ -15,27 +50,26 @@
   }
   
   .section {
-    margin-bottom: 20px;
+    margin: 15px 0;
   }
   
   .section h2 {
-    font-size: 1.5rem;
-    color: #555;
-    margin-bottom: 10px;
+    color: #222222;
   }
   
   .section p, .section li {
-    font-size: 1rem;
-    color: #666;
+    color: #252525;
   }
-  
+  em{
+    color: rgb(79, 79, 79);
+  }
   ul {
     padding-left: 20px;
   }
   
   .newsitem {
-    background: #f9f9f9;
-    padding: 15px;
+    background: #f1f1f1;
+    padding: 5px 10px;
     margin-bottom: 10px;
     border-left: 4px solid #0073e6;
   }
@@ -43,34 +77,37 @@
     display: flex;
     justify-content: space-between;
     gap: 10px;
-  }
-  
-  .newsitem h3 {
-    font-size: 1.4rem;
-    margin-bottom: 5px;
-  }
-  
+  }  
   .newsitem p {
-    font-size: 0.9rem;
-    color: #333;
+    color: #000000;
+  }
+  .entryprices{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
   
   @media (max-width: 768px) {
     .marketanalysis {
       padding: 10px;
     }
-  
-    .section h2 {
-      font-size: 1.2rem;
-    }
-  
-    .section p, .section li {
-      font-size: 0.9rem;
-    }
-  
-    .newsitem h3 {
-      font-size: 1.2rem;
-    }
+  }
+
+  .analysisdiv::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    opacity: 0; /* Make it invisible */
+    transition: opacity 0.3s ease; /* Smooth transition */
+  }
+    .analysisdiv:hover::-webkit-scrollbar {
+    opacity: 1; /* Make it visible */
+  }
+    .analysisdiv::-webkit-scrollbar-track {
+    background: #ebebeb;
+  }
+    .analysisdiv::-webkit-scrollbar-thumb {
+    background: #a3a3a3;
+    border-radius: 4px;
   }
   
   @media (max-width: 450px) {
@@ -78,4 +115,33 @@
     flex-direction: column;
     gap: 0;
   }
+  .analysisdiv{
+    width:calc(100vw - 20px);
+    min-width: unset;
+    max-width: unset;
+    max-height: 73%;
+  }
+  .entryprices{
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+.askaibtn{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid rgb(58, 41, 255);
+  border-radius: 5px;
+  opacity: .95;
+  padding: 5px;
+  z-index: 1000;
+}
+.askaibtn:hover img{
+  width: 40px;
+}
+.askaibtn img{
+  all: unset;
+  width: 30px;
+  aspect-ratio: 1/1;
+  transition: .2s ease;
 }

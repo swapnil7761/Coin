@@ -75,9 +75,15 @@ const Convertor = () => {
       handleConvert();
     }
   }, [amount, rate1, rate2]);
+
+  console.log(rates);
+
   return (
     <>
-      <div className={s.convertorsection}>
+      <div className={`${s.convertorsection} container`}>
+        <div className="productheading">
+          <h2>Cryptocurrency Converter Calculator</h2>
+        </div>
         <div className={s.inputsection}>
           <div>
             <input
@@ -146,10 +152,18 @@ const Convertor = () => {
           </div>
         </div>
       </div>
-      <div>
-        {rates.map((rate, index) => (
-          <div key={index}></div>
-        ))}
+      <div className={`${s.popratesdiv} container`}>
+        <h2>Popular Cryptocurrency Conversions</h2>
+        <div className={s.poprateslist}>
+          {rates
+            .filter((rate, index) => index < 25)
+            .map((rate, index) => (
+              <div className={s.ratediv} key={index}>
+                <img src="/bitcoinlogo.png" /> Bitcoin to {rate.name} |{" "}
+                {rate.value} {rate.unit}
+              </div>
+            ))}
+        </div>
       </div>
     </>
   );

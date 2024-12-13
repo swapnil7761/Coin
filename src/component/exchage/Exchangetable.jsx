@@ -10,7 +10,7 @@ const Exchangetable = ({ filterexchange = [], exchange, handleSort }) => {
   }
 
   return (
-    <div className="table-wrapper">
+    <div className="table-wrapper container">
       <table>
         <thead>
           <tr>

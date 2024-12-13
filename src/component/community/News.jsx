@@ -10,7 +10,7 @@ const News = ({ news }) => {
   return (
     <>
       {news && news.length > 0 ? (
-        <div className={s.newssection}>
+        <div className={`${s.newssection} container`}>
           <div className={s.newssectionheading}>
             <h1>Latest Crypto News</h1>
             <p>

@@ -10,7 +10,7 @@ const Headtext = ({ globaldata }) => {
   console.log(globaldata);
 
   return (
-    <div className="headintro">
+    <div className="headintro container">
       <div className="headinfo">
         <h2> Today's Cryptocurrency Prices by Market Cap</h2>
         {globaldata ? (

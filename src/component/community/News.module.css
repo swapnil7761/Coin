@@ -10,7 +10,6 @@
     max-width: 1260px;
     padding-bottom: 10px;
     margin: 20px 10px;
-    background-color: rgb(255, 255, 255);
 }
 .newssection a{
     text-decoration: none;
@@ -76,7 +75,7 @@
         grid-column: 1/2;
     }
 }
-@media (max-width:425px){
+@media (max-width:450px){
     .morenewsdiv{
         grid-template-columns: 1fr;
         gap: 0;

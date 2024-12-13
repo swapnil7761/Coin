@@ -4,11 +4,9 @@ import CoinChart from "./CoinChart";
 import { Link } from "react-router-dom";
 
 const Coin = ({ coin }) => {
-  // Function to format numbers with commas
   const formatNumber = (number) => {
     return new Intl.NumberFormat().format(number);
   };
-  // Helper to safely get percentage values
   const getPercentageChange = (value) => {
     return value != null ? Math.abs(value.toFixed(2)) : "N/A";
   };

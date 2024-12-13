@@ -54,7 +54,7 @@ const Exchange = () => {
 
   return (
     <>
-      <div className="exchangeheading">
+      <div className="exchangeheading container">
         <h2>Top Cryptocurrency Spot Exchanges</h2>{" "}
         <p>
           CoinMarketCap ranks and scores exchanges based on traffic, liquidity,

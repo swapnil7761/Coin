@@ -102,7 +102,7 @@ const Detailchart = ({ coin }) => {
     gradient.addColorStop(
       0.2,
       prices[0] < prices[prices.length - 1]
-        ? "rgba(0, 199, 0, .3)"
+        ? "rgba(0, 255, 0, 0.3)"
         : "rgba(255, 59, 59, .3)"
     );
 

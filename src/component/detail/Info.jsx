@@ -11,10 +11,17 @@ const Info = ({ coin }) => {
       onClick={() => setIsExpanded(!isExpanded)}
     >
       <h1>About {coin.id}</h1>
-      <p
-        className={`description ${isExpanded ? "expanded" : "collapsed"}`}
-        dangerouslySetInnerHTML={{ __html: coin.description.en }}
-      />
+      {coin.description.en ? (
+        <p
+          className={`description ${isExpanded ? "expanded" : "collapsed"}`}
+          dangerouslySetInnerHTML={{ __html: coin.description.en }}
+        />
+      ) : (
+        <>
+          <h2>ERROR:404</h2>
+          "Information not avialable right now."
+        </>
+      )}
     </div>
   );
 };

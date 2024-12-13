@@ -104,17 +104,28 @@ function Homepage({ allCoins, globaldata, filterCoins }) {
       {filterCoins.length > 0 ? (
         <Cointable handleSort={handleSort} filterCoins={filterCoins} />
       ) : (
-        <p
-          style={{
-            color: "gray",
-            fontSize: "24px",
-            justifySelf: "center",
-            margin: "20px 0",
-            color: "tomato",
-          }}
-        >
-          ... No match found ...
-        </p>
+        <div>
+          <div
+            className="container"
+            style={{
+              maxWidth: "1265px",
+              width: "calc(100% - 20px)",
+              justifySelf: "center",
+            }}
+          >
+            <p
+              style={{
+                color: "gray",
+                fontSize: "24px",
+                justifySelf: "center",
+                margin: "20px 0",
+                color: "tomato",
+              }}
+            >
+              ... No match found ...
+            </p>
+          </div>
+        </div>
       )}
     </>
   );
