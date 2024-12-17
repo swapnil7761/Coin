@@ -7,7 +7,6 @@ const Headtext = ({ globaldata }) => {
   const getPercentageChange = (value) => {
     return value != null ? Math.abs(value.toFixed(2)) : "N/A";
   };
-  console.log(globaldata);
 
   return (
     <div className="headintro container">

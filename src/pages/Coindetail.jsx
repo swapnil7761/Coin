@@ -5,6 +5,7 @@ import Detailchart from "../component/detail/Detailchart";
 import Info from "../component/detail/Info";
 import CoinAnalysis from "../component/analysis/CoinAnalysis";
 import Loading from "../component/loading/Loading";
+import News from "../component/community/News";
 
 const Coindetail = ({ setFilterCoins }) => {
   const { id } = useParams();
@@ -56,6 +57,9 @@ const Coindetail = ({ setFilterCoins }) => {
         <div className="detailpagemain">
           <Detailchart coin={coin} />
           <Info coin={coin} />
+          <div style={{ margin: "-10px" }}>
+            <News coinid={coin.name} />
+          </div>
           <CoinAnalysis coin={coin} />
         </div>
       </div>

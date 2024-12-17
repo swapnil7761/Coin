@@ -11,6 +11,8 @@ import Community from "./pages/Community";
 import Exchange from "./pages/Exchange";
 import Products from "./pages/Products";
 import Loading from "./component/loading/Loading";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 function App() {
   const [allCoins, setAllCoins] = useState([]);
@@ -59,6 +61,8 @@ function App() {
       : allCoins;
     setFilterCoins(searchResults);
   }, [search, allCoins]);
+
+  useGSAP(() => {}, []);
 
   return (
     <>
