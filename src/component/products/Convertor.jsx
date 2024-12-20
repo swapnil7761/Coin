@@ -75,9 +75,6 @@ const Convertor = () => {
       handleConvert();
     }
   }, [amount, rate1, rate2]);
-
-  console.log(rates);
-
   return (
     <>
       <div className={`${s.convertorsection} container`}>

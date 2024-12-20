@@ -533,9 +533,14 @@ const CoinAnalysis = ({ coin }) => {
   return (
     <>
       {!aibot ? (
-        <button className={s.askaibtn} onClick={() => setAibot(!aibot)}>
-          <img src="/askai.png" />
-        </button>
+        <>
+          <button className={s.askaibtn} onClick={() => setAibot(!aibot)}>
+            <img src="/askai.png" />
+          </button>
+          <div className={s.askaitext}>
+            <pre>Ask AI →</pre>
+          </div>
+        </>
       ) : null}
       {aibot ? (
         <div className={`${s.analysisdiv} container`}>

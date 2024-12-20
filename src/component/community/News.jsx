@@ -14,8 +14,7 @@ const News = ({ coinid }) => {
   const fromDate = oneWeekAgo.toISOString().split("T")[0];
 
   useEffect(() => {
-    const dynmiculr = coinid || "crypto";
-    console.log("fetching for:" + dynmiculr);
+    const dynmiculr = coinid || "cryptocurrency";
 
     fetch(
       `https://newsapi.org/v2/everything?q=${dynmiculr}&from=${fromDate}&to=${today}&sortBy=popularity&apiKey=fcac6b01b3b54370afd5fb1d96884eec`

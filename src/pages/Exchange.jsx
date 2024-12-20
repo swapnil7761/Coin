@@ -66,6 +66,11 @@ const Exchange = () => {
           </a>
           .
         </p>
+        <p>
+          Highly-ranked exchanges will possess the aforementioned traits and
+          have markets that score well across Liquidity Scores, Volume, and Web
+          Traffic Factor and have high Confidence scores.
+        </p>
       </div>
       {exchange.length ? (
         <Exchangetable

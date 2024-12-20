@@ -1,12 +1,13 @@
 import React from "react";
 import s from "./Footer.module.css";
+import coinlogoblack from "/coinlogoblack.png";
 
 const Footer = () => {
   return (
     <footer data-role="global-container" className={s.footer}>
       <div className={s.footersection}>
         <div>
-          <img src="./coinlogoblack.png" alt="logo" />
+          <img src={coinlogoblack} alt="logo" />
         </div>
         <div className={s.footernav}>
           <div>

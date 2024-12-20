@@ -1,8 +1,7 @@
 .newslettersection{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding-top: 240px;
-    background: url("footer.svg") top  ;
+    padding-top: 120px;
     background-size: cover; 
     width: 100%;
     height: auto;
@@ -43,7 +42,7 @@
     margin-top: 20px;
 }
 .newslettersubmit input{
-    background-color: rgb(210, 210, 210);
+    background-color: rgb(255, 255, 255);
     font-size: medium;
     padding: 10px 16px;
     border-radius: 5px;
@@ -56,12 +55,6 @@
     padding: 10px 16px;
     border-radius: 5px;
     min-width: 50%;
-}
-
-@media screen and (max-width:1024px){
-    .newslettersection{
-        padding-top: 180px;
-    }
 }
 @media screen and (max-width:890px){
     .newslettersection{

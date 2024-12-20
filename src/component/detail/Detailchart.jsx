@@ -26,6 +26,7 @@ ChartJS.register(
 const Detailchart = ({ coin }) => {
   const [chartData, setChartData] = useState(null);
   const [datarange, setDatarange] = useState(null);
+  const [rangeclass, setRangeclass] = useState(0);
   const [loading, setLoading] = useState(false);
 
   const currentTime = Math.floor(Date.now() / 1000);
@@ -151,13 +152,16 @@ const Detailchart = ({ coin }) => {
             <Line data={chartData} options={options} />
           </div>
           <div className="chartbtndiv">
-            {timeRanges.map((range) => (
+            {timeRanges.map((range, index) => (
               <button
                 key={range.label}
                 className={
-                  datarange === range.value ? "selected" : "chartbtndivbutton"
+                  rangeclass === index ? "selected" : "chartbtndivbutton"
                 }
-                onClick={() => setDatarange(range.value)}
+                onClick={() => {
+                  setDatarange(range.value);
+                  setRangeclass(index);
+                }}
               >
                 {range.label}
               </button>

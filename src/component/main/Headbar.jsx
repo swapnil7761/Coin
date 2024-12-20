@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Headbar = ({ handleSearchinput, search }) => {
+  const [burgeron, setBurgeron] = useState(false);
   return (
     <div className="head">
       <div className="headmenu">
@@ -11,7 +13,19 @@ const Headbar = ({ handleSearchinput, search }) => {
           </Link>
         </div>
         <div className="headnavbar">
-          <ul>
+          <div className="burgermenu">
+            <button
+              onClick={() => {
+                setBurgeron(!burgeron);
+                console.log(burgeron);
+              }}
+            >
+              burger
+            </button>
+          </div>
+          <ul
+            className={burgeron ? "burgervisibiltyon" : "burgervisibiltyoff "}
+          >
             <li>
               <Link to={`/`} target="_self" rel="noopener noreferrer">
                 Currency

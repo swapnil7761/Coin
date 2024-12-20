@@ -13,6 +13,7 @@ import Products from "./pages/Products";
 import Loading from "./component/loading/Loading";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import ParticleEffect from "./component/products/ParticleEffect";
 
 function App() {
   const [allCoins, setAllCoins] = useState([]);
@@ -74,6 +75,7 @@ function App() {
           <div>updated at: {Date(globaldata.updated_at)}</div>
         </div>
         {/* <Loading /> */}
+        <ParticleEffect />
         <Routes>
           <Route
             path="/"
@@ -81,6 +83,7 @@ function App() {
               <Homepage
                 allCoins={allCoins}
                 filterCoins={filterCoins}
+                setFilterCoins={setFilterCoins}
                 globaldata={globaldata}
               />
             }

@@ -4,7 +4,7 @@ import Tranding from "../component/coin/Tranding";
 import Sidedata from "../component/coin/Sidedata";
 import Cointable from "../component/coin/Cointable";
 
-function Homepage({ allCoins, globaldata, filterCoins }) {
+function Homepage({ allCoins, globaldata, filterCoins, setFilterCoins }) {
   const [atoz, setAtoz] = useState(true);
   const [filterTop, setFilterTop] = useState(null);
 

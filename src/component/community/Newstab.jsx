@@ -31,7 +31,11 @@ const Newstab = ({ newstab }) => {
       <div
         className={s.tabsection}
         style={{
-          maxHeight: expanded ? "none" : "300px",
+          maxHeight: expanded
+            ? "none"
+            : window.innerWidth < 768
+            ? "600px"
+            : "350px",
           overflow: "hidden",
           position: "relative",
         }}
