@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://swapnil7761.github.io/coin",
+  "homepage": "https://swapnil7761.github.io/coin/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
